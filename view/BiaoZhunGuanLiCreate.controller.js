@@ -26,18 +26,79 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiCreate", {
         this.initializeData();
     },
     onChangeZhuTiYu:function(oEvent){
-        // var context = oEvent.oSource.getSelectedKey();
+        var context = oEvent.oSource.getSelectedKey();
+        this.drawComboBoxItemBz(context);
+    },
+    drawComboBoxItemBz: function(key){
+        // var cell = this.getView().byId("ziZhuTiYuCreate");
+        // var newBiaoZhun = this.getView().getModel("newBiaoZhun").getData().Detail;
+        var combobox = this.getView().byId("ziZhuTiYuCreateComboBox");
+
+        combobox.removeAllItems();
+        if("001"==key){
+            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"999"}));
+            combobox.addItem(new sap.ui.core.ListItem({text:"物料基本信息",key:"001"}));
+            combobox.setSelectedKey("999");
+        }
+        if("002"==key){
+            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"999"}));
+            combobox.addItem(new sap.ui.core.ListItem({text:"财务基本信息",key:"002"}));
+            combobox.setSelectedKey("999");
+        }
+        if("003"==key){
+            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"999"}));
+            combobox.addItem(new sap.ui.core.ListItem({text:"人事基本信息",key:"003"}));
+            combobox.setSelectedKey("999");
+        }
+        if("004"==key){
+            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"999"}));
+            combobox.addItem(new sap.ui.core.ListItem({text:"销售基本信息",key:"004"}));
+            combobox.setSelectedKey("999");
+        }
+        if("005"==key){
+            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"999"}));
+            combobox.addItem(new sap.ui.core.ListItem({text:"客户基本信息",key:"005"}));
+            combobox.setSelectedKey("999");
+        }
+        if("006"==key){
+            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"999"}));
+            combobox.addItem(new sap.ui.core.ListItem({text:"供应商基本信息",key:"006"}));
+            combobox.setSelectedKey("999");
+        }
+        if("007"==key){
+            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"999"}));
+            combobox.addItem(new sap.ui.core.ListItem({text:"设备基本信息",key:"007"}));
+            combobox.setSelectedKey("999");
+        }
+        if("008"==key){
+            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"999"}));
+            combobox.addItem(new sap.ui.core.ListItem({text:"设备分类基本信息",key:"008"}));
+            combobox.setSelectedKey("999");
+        }
+        if("009"==key){
+            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"999"}));
+            combobox.addItem(new sap.ui.core.ListItem({text:"设备特性基本信息",key:"009"}));
+            combobox.setSelectedKey("999");
+        }
+        if("010"==key){
+            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"999"}));
+            combobox.addItem(new sap.ui.core.ListItem({text:"功能位置基本信息",key:"010"}));
+            combobox.setSelectedKey("999");
+        }
+        if("011"==key){
+            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"999"}));
+            combobox.addItem(new sap.ui.core.ListItem({text:"科目基本信息",key:"011"}));
+            combobox.setSelectedKey("999");
+        }
+        if("999"==key){
+             combobox.addItem(new sap.ui.core.ListItem({text:"",key:"999"}));
+            combobox.setSelectedKey("999");
+            combobox.removeAllItems();
+        }
+    },
+    onSaveBiaoZhun:function(){
         var newBiaoZhun = this.getView().getModel("newBiaoZhun").getData().Detail;
-         newBiaoZhun.DsSubdomain=newBiaoZhun.DsDomain;                         
-    //     var cell = this.getView().byId("ziZhuTiYuCreate");
-        // var combobox = this.getView().byId("ziZhuTiYuCreateComboBox");
-        // combobox.setEditable(false);
-    //     cell.removeContent(combobox);
-    //     var oComboBox = new sap.ui.commons.ComboBox({
-    //     	items: [new sap.ui.core.ListItem({text: "物料基本信息", key: "001"})]
-    //     	});
-    //     cell.addContent(oComboBox);
-    //   console.log(newBiaoZhun.DsSubdomain);   
+        console.log(newBiaoZhun.DsSubdomain);
     }
 /**
 * Called when a controller is instantiated and its View controls (if available) are already created.
