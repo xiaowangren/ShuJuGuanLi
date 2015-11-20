@@ -1,0 +1,248 @@
+<core:View xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m" 
+	xmlns:c="sap.ui.commons"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout"
+	xmlns:ly="sap.ui.commons.layout"
+	controllerName="com.zhenergy.data.manager.view.ZhiLiangGuanLiUpdate" 
+	xmlns:html="http://www.w3.org/1999/xhtml">
+    <Panel height="720px">
+        <content>
+            <c:TabStrip height="500px">
+                <c:tabs>
+                       <c:Tab text="数据质量更新">
+                           <c:content>
+                            <f:SimpleForm
+                                id="idUpdateZhiLiangForm"
+                                minWidth="800"
+                                maxContainerCols="2"
+                                editable="true"
+                                layout="ResponsiveGridLayout"
+                                labelSpanL="2"
+                                labelSpanM="2"
+                                emptySpanL="3"
+                                emptySpanM="3"
+                                columnsL="1"
+                                columnsM="1"
+                                class="editableForm">
+                                <f:content>   
+                                    <ly:MatrixLayout columns="7" widths="17%,20%,15%,20%,2%,17%,20%" height="100%">
+                                        <ly:MatrixLayoutRow>
+                                            <ly:MatrixLayoutCell>
+                                                <c:Label text="数据项类型" />
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:ComboBox width="95%" selectedKey="999">
+                                                    <c:items>
+                                                        <core:ListItem text="请选择数据项类型" key="999"></core:ListItem>
+                                                        <core:ListItem text="表" key="001"></core:ListItem>
+                                                        <core:ListItem text="字段" key="002"></core:ListItem>
+                                                        <core:ListItem text="文件" key="003"></core:ListItem>
+                                                        <core:ListItem text="Web Service" key="004"></core:ListItem>
+                                                    </c:items>
+                                                </c:ComboBox>   
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:Label text="系统" />
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:ComboBox width="95%" selectedKey="999">
+                                                    <c:items>
+                                                        <core:ListItem text="请选择子主题域" key="999"></core:ListItem>
+                                                        <core:ListItem text="MDM" key="001"></core:ListItem>
+                                                    </c:items>
+                                                </c:ComboBox>
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:Label text="数据项类型英文名称" />
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:TextField value="" width="95%"/>
+                                            </ly:MatrixLayoutCell>
+                                        </ly:MatrixLayoutRow>
+                                        <ly:MatrixLayoutRow>
+                                            <ly:MatrixLayoutCell>
+                                                <c:Label text="数据项类型中文名称" />
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:TextField value="" width="95%"/>
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:Label text="数据项英文名称"/>
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:TextField value="" width="95%"/>
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:Label text="数据项中文名称" />
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:TextField value="" width="95%"/>
+                                            </ly:MatrixLayoutCell>
+                                        </ly:MatrixLayoutRow>
+                                        <ly:MatrixLayoutRow>
+                                            <ly:MatrixLayoutCell>
+                                                <c:Label text="数据项描述" />
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell colSpan="6">
+                                                <c:TextArea value ="" cols="90" rows ="3"></c:TextArea>
+                                            </ly:MatrixLayoutCell>
+                                        </ly:MatrixLayoutRow>
+                                        <ly:MatrixLayoutRow>
+                                            <ly:MatrixLayoutCell>
+                                                <c:Label text="数据质量检查维度" />
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:ComboBox width="95%" selectedKey="999">
+                                                    <c:items>
+                                                        <core:ListItem text="请选择质量维度" key="999"></core:ListItem>
+                                                        <core:ListItem text="完整性" key="0"></core:ListItem>
+                                                        <core:ListItem text="一致性" key="1"></core:ListItem>
+                                                        <core:ListItem text="准确性" key="2"></core:ListItem>
+                                                        <core:ListItem text="唯一性" key="3"></core:ListItem>
+                                                    </c:items>
+                                                </c:ComboBox>
+                                            </ly:MatrixLayoutCell>
+                                        </ly:MatrixLayoutRow>
+                                        <ly:MatrixLayoutRow>
+                                            <ly:MatrixLayoutCell>
+                                                <c:Label text="规则描述" />
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell colSpan="6">
+                                                <c:TextArea value ="" cols="90" rows ="3"></c:TextArea>
+                                            </ly:MatrixLayoutCell>
+                                        </ly:MatrixLayoutRow>
+                                        <ly:MatrixLayoutRow>
+                                            <ly:MatrixLayoutCell>
+                                                <c:Label text="数据质量负责人" />
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:TextField value="" width="95%"/>
+                                            </ly:MatrixLayoutCell>
+                                        </ly:MatrixLayoutRow>
+                                        <ly:MatrixLayoutRow>
+                                            <ly:MatrixLayoutCell>
+                                                <c:Label text="检查频度" />
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell colSpan="6">
+                                                <c:RadioButtonGroup selectedIndex="0" columns="6">
+                                                    <c:items>
+                                                        <core:ListItem text="日" key="00"></core:ListItem>
+                                                        <core:ListItem text="周" key="01" ></core:ListItem>
+                                                        <core:ListItem text="旬" key="02" ></core:ListItem>
+                                                        <core:ListItem text="月" key="03" ></core:ListItem>
+                                                        <core:ListItem text="季" key="04" ></core:ListItem>
+                                                        <core:ListItem text="年" key="05" ></core:ListItem>
+                                                    </c:items>
+                                                </c:RadioButtonGroup>
+                                            </ly:MatrixLayoutCell>
+                                        </ly:MatrixLayoutRow>
+                                        <ly:MatrixLayoutRow>
+                                            <ly:MatrixLayoutCell>
+                                                <c:Label text="检查频度的日期" />
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:ComboBox width="95%" selectedKey="999">
+                                                    <c:items>
+                                                        <core:ListItem text="请选择日期" key="999"></core:ListItem>
+                                                        <core:ListItem text="每月12号" key="001"></core:ListItem>
+                                                        <core:ListItem text="每周一" key="002"></core:ListItem>
+                                                        <core:ListItem text="每月月底" key="003"></core:ListItem>
+                                                    </c:items>
+                                                </c:ComboBox>
+                                            </ly:MatrixLayoutCell>
+                                        </ly:MatrixLayoutRow>
+                                        <ly:MatrixLayoutRow>
+                                            <ly:MatrixLayoutCell>
+                                                <c:Label text="是否有效" />
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:ComboBox width="95%" selectedKey="999">
+                                                    <c:items>
+                                                        <core:ListItem text="请选择是否有效" key="999"></core:ListItem>
+                                                        <core:ListItem text="N" key="false"></core:ListItem>
+                                                        <core:ListItem text="Y" key="true"></core:ListItem>
+                                                    </c:items>
+                                                </c:ComboBox>
+                                            </ly:MatrixLayoutCell>
+                                        </ly:MatrixLayoutRow>
+                                        <ly:MatrixLayoutRow>
+                                            <ly:MatrixLayoutCell>
+                                                <c:Label text="创建日期" />
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <DatePicker value="" valueFormat="yyyyMMdd" width="95%"></DatePicker>
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:Label text="生效日期" />
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <DatePicker value="" valueFormat="yyyyMMdd" width="95%"></DatePicker>
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:Label text="失效日期" />
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <DatePicker value="" valueFormat="yyyyMMdd" width="95%"></DatePicker>
+                                            </ly:MatrixLayoutCell>
+                                        </ly:MatrixLayoutRow>
+                                        <ly:MatrixLayoutRow>
+                                            <ly:MatrixLayoutCell>
+                                                <c:Label text="备用1" />
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:TextField value="" width="95%"/>
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:Label text="备用2" />
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:TextField value="" width="95%"/>
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:Label text="备用3" />
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:TextField value="" width="95%"/>
+                                            </ly:MatrixLayoutCell>
+                                        </ly:MatrixLayoutRow>
+                                    </ly:MatrixLayout>
+                                </f:content>
+                            </f:SimpleForm> 
+                            <ly:MatrixLayout  columns="7" widths="10%,5%,10%,10%,10%,15%,15%">
+                                <ly:MatrixLayoutRow>
+                                    <ly:MatrixLayoutCell>
+                                    </ly:MatrixLayoutCell>
+                                    <ly:MatrixLayoutCell>
+                                    </ly:MatrixLayoutCell>
+                                    <ly:MatrixLayoutCell>
+                                        <c:Button text="确认" icon = "sap-icon://save" press="onSave" />
+                                    </ly:MatrixLayoutCell>
+                                    <ly:MatrixLayoutCell><!--sys-cancel-->
+                                        <c:Button text="重置" icon = "sap-icon://refresh" press="onCancel"/>
+                                    </ly:MatrixLayoutCell>
+                                    <ly:MatrixLayoutCell>
+                                        <c:Button text="删除" icon = "sap-icon://sys-cancel" press="onCancel"/>
+                                    </ly:MatrixLayoutCell>
+                                    <ly:MatrixLayoutCell>
+                                    </ly:MatrixLayoutCell>
+                                    <ly:MatrixLayoutCell>
+                                    </ly:MatrixLayoutCell>
+                                </ly:MatrixLayoutRow>
+                            </ly:MatrixLayout>
+                        </c:content>
+                    </c:Tab> 
+                </c:tabs>
+            </c:TabStrip>
+        </content>
+    </Panel>
+</core:View>

@@ -1,0 +1,9 @@
+<core:View xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m" 
+	xmlns:c="sap.ui.commons" 
+	controllerName="com.zhenergy.data.manager.view.Welcome" 
+	xmlns:html="http://www.w3.org/1999/xhtml">
+    
+  
+</core:View>

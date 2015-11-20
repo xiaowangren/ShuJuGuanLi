@@ -1,0 +1,145 @@
+<core:View xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m" 
+	xmlns:c="sap.ui.commons"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout"
+	xmlns:ly="sap.ui.commons.layout"
+	controllerName="com.zhenergy.data.manager.view.BiaoZhunGuanLiQuery" 
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<!--<mvc:XMLView viewName="com.zhenergy.data.manager.view.Header"/>-->
+    <Panel height="720px" >
+        <content>
+            <c:TabStrip height="152px">
+                <c:tabs>
+                       <c:Tab class="query_tiaoJian" text="数据标准查询">
+                           <c:content>
+                            <f:SimpleForm
+                                id="idQueryBiaoZhunForm"
+                                minWidth="800"
+                                maxContainerCols="2"
+                                editable="true"
+                                layout="ResponsiveGridLayout"
+                                labelSpanL="2"
+                                labelSpanM="2"
+                                emptySpanL="3"
+                                emptySpanM="3"
+                                columnsL="1"
+                                columnsM="1"
+                                class="query_tiaoJian">
+                                <f:content>   
+                                    <ly:MatrixLayout columns="8" widths="12%,15%,10%,15%,10%,15%,6%,17%" height="100%" >
+                                        <ly:MatrixLayoutRow>
+                                            <ly:MatrixLayoutCell>
+                                                <c:Label text="数据标准类别" />
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:ComboBox width="95%" selectedKey="999" id="shuJuBiaoZhunLeiBieQuery">
+                                                    <c:items>
+                                                        <core:ListItem text="请选择类别" key="999"></core:ListItem>
+                                                        <core:ListItem text="主数据标准" key="0"></core:ListItem>
+                                                        <core:ListItem text="代码标准" key="1"></core:ListItem>
+                                                        <core:ListItem text="KPI标准" key="2"></core:ListItem>
+                                                        <core:ListItem text="交换数据标准" key="3"></core:ListItem>
+                                                    </c:items>
+                                                </c:ComboBox>
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:Label text="数据项编号" />
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:TextField value="" width="95%" id="shuJuXiangBianHaoQuery"/>
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:Label text="数据项名称" />
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:TextField value="" width="95%" id="shuJuXiangMingChengQuery"/>
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:Label text="主题域" />
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:ComboBox width="95%" selectedKey="999" id="zhuTiYuQuery">
+                                                    <c:items>
+                                                        <core:ListItem text="请选择主题域" key="999"></core:ListItem>
+                                                        <core:ListItem text="物资" key="001"></core:ListItem>
+                                                        <core:ListItem text="财务" key="002"></core:ListItem>
+                                                        <core:ListItem text="人事" key="003"></core:ListItem>
+                                                        <core:ListItem text="销售" key="004"></core:ListItem>
+                                                        <core:ListItem text="客户" key="005"></core:ListItem>
+                                                        <core:ListItem text="供应商" key="006"></core:ListItem>
+                                                        <core:ListItem text="设备" key="007"></core:ListItem>
+                                                        <core:ListItem text="设备分类" key="008"></core:ListItem>
+                                                        <core:ListItem text="设备特性" key="009"></core:ListItem>
+                                                    </c:items>
+                                                </c:ComboBox>
+                                            </ly:MatrixLayoutCell>
+                                        </ly:MatrixLayoutRow>
+                                        <ly:MatrixLayoutRow>
+                                            <ly:MatrixLayoutCell>
+                                                <c:Label text="数据安全分级" />
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:ComboBox width="95%" selectedKey="999" id="shuJuAnQuanFenJiQuery">
+                                                    <c:items>
+                                                        <core:ListItem text="数据安全分级" key="999"></core:ListItem>
+                                                        <core:ListItem text="绝密" key="0"></core:ListItem>
+                                                        <core:ListItem text="机密" key="1"></core:ListItem>
+                                                        <core:ListItem text="秘密" key="2"></core:ListItem>
+                                                        <core:ListItem text="公开" key="3"></core:ListItem>
+                                                    </c:items>
+                                                </c:ComboBox>
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:Label text="是否有效" />
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:ComboBox width="95%" selectedKey="999" id="shiFouYouXiaoQuery">
+                                                    <c:items>
+                                                        <core:ListItem text="请选择是否有效" key="999"></core:ListItem>
+                                                        <core:ListItem text="N" key="false"></core:ListItem>
+                                                        <core:ListItem text="Y" key="true"></core:ListItem>
+                                                    </c:items>
+                                                </c:ComboBox>
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                            </ly:MatrixLayoutCell>
+                                        </ly:MatrixLayoutRow>
+                                        <ly:MatrixLayoutRow>
+                                            <ly:MatrixLayoutCell>
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:Button text="查询" press="onBiaoZhunQuery"/>
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                                <c:Button text="重置" press="onBiaozhunChongZhi"/>
+                                            </ly:MatrixLayoutCell>
+                                            <ly:MatrixLayoutCell>
+                                            </ly:MatrixLayoutCell>
+                                            
+                                        </ly:MatrixLayoutRow>
+                                    </ly:MatrixLayout>
+                                </f:content>
+                            </f:SimpleForm> 
+                        </c:content>
+                    </c:Tab> 
+                </c:tabs>
+            </c:TabStrip>
+            <mvc:JSView viewName="com.zhenergy.data.manager.view.BiaoZhunGuanLiResult"/>
+
+        </content>
+    </Panel>
+</core:View>

@@ -1,0 +1,38 @@
+#__app0-Master.sapMNav.sapMSplitContainerMaster{
+    width:15%;
+    background-color:rgb(222,242,242);
+}
+.head_margin{
+        margin-left: 1%;
+}
+.head_margin_px{
+        margin-left: 5px;
+}
+.head_margin_3{
+        margin-left: 3%;
+}
+.query_tiaoJian{
+        background-color: rgba(239,217,128,0.38);
+}
+#__strip0{
+    margin-top:-10px;
+}
+input.sapMInputBaseInner{
+   font-size: 11px; 
+}
+.sapMInputVH>.sapMInputBaseInner{
+        padding-right: 1.5rem;
+}
+.sapMInputValHelp{
+    width: 2rem;
+    height: 2rem;
+}
+.sapMInputValHelpInner, html[data-sap-ui-browser='ie9'] .sapMInputValHelpInner{
+     width: 2rem;
+}
+.sapUiRespGridBreak.sapUiRespGridSpanL9.sapUiRespGridSpanM9.sapUiRespGridSpanS12{
+    width:90%;
+}
+/*#__picker0-inner.sapMInputBaseInner{*/
+/*        font-size: 11px;*/
+/*}*/

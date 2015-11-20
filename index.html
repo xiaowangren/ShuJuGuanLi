@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
+
+		<script src="resources/sap-ui-core.js"
+				id="sap-ui-bootstrap"
+				data-sap-ui-libs="sap.m,sap.ui.commons,sap.ui.table"
+				data-sap-ui-xx-bindingSyntax="complex"
+				data-sap-ui-resourceroots='{"com.zhenergy.data.manager": "./"}'
+				data-sap-ui-theme="sap_bluecrystal">
+		</script>
+		<!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme -->
+		
+		<link rel="stylesheet" type="text/css" href="css/page.css">
+		
+		<script>
+				sap.ui.localResources("view");
+				var idHead = sap.ui.view({id:"idHead", viewName:"com.zhenergy.data.manager.view.Header", type:sap.ui.core.mvc.ViewType.XML});
+				idHead.placeAt("head_master");
+				var idSplitApp = sap.ui.view({id:"idSplitApp", viewName:"com.zhenergy.data.manager.view.Split", type:sap.ui.core.mvc.ViewType.JS});
+				idSplitApp.placeAt("content");
+				//配置服务器
+				 var sServiceUrl = "/sap/opu/odata/sap/ZHRMS_SRV/";
+                 var oModel = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
+                 sap.ui.getCore().setModel(oModel);
+		</script>
+
+	</head>
+	<body class="sapUiBody" role="application">
+	    <div id="head_master" style="height:35px">
+	    </div>
+		<div id="content"></div>
+	</body>
+</html>
