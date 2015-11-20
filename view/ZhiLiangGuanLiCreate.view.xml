@@ -225,7 +225,7 @@
                                     <ly:MatrixLayoutCell>
                                     </ly:MatrixLayoutCell>
                                     <ly:MatrixLayoutCell>
-                                        <c:Button text="确认" icon = "sap-icon://save" press="onSaveZhiLiang" />
+                                        <c:Button text="保存" icon = "sap-icon://save" press="onSaveZhiLiang" />
                                     </ly:MatrixLayoutCell>
                                     <ly:MatrixLayoutCell><!--sys-cancel-->
                                         <c:Button text="重置" icon = "sap-icon://refresh" press="onChongZhiZhiLiang"/>

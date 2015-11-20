@@ -47,7 +47,7 @@
                                                 <c:Label text="主题域" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <c:ComboBox width="95%" selectedKey="{newBiaoZhun>/Detail/DsDomain}" >
+                                                <c:ComboBox width="95%" selectedKey="{newBiaoZhun>/Detail/DsDomain}" change="onChangeZhuTiYu">
                                                     <c:items>
                                                         <core:ListItem text="请选择主题域" key="999"></core:ListItem>
                                                         <core:ListItem text="物资" key="001"></core:ListItem>
@@ -69,15 +69,22 @@
                                             <ly:MatrixLayoutCell>
                                                 <c:Label text="子主题域" />
                                             </ly:MatrixLayoutCell>
-                                            <ly:MatrixLayoutCell>
-                                                <c:ComboBox width="95%" selectedKey="{newBiaoZhun>/Detail/DsSubdomain}">
+                                            <ly:MatrixLayoutCell id="ziZhuTiYuCreate">
+                                                <c:ComboBox width="95%" selectedKey="{newBiaoZhun>/Detail/DsSubdomain}" id="ziZhuTiYuCreateComboBox" editable="false">
                                                     <c:items>
-                                                        <core:ListItem text="请选择子主题域" key="999"></core:ListItem>
-                                                        <core:ListItem text="功能位置基本信息" key="001"></core:ListItem>
-                                                        <core:ListItem text="科目基本信息" key="002"></core:ListItem>
-                                                        <core:ListItem text="客户基本信息" key="003"></core:ListItem>
-                                                        <core:ListItem text="设备基本信息" key="004"></core:ListItem>
-                                                        <core:ListItem text="物料基本信息" key="005"></core:ListItem>
+                                                        <core:ListItem text="请选择子主题域" key="999" id="999"></core:ListItem>
+                                                        <core:ListItem text="物料基本信息" key="001" id="001"></core:ListItem>
+                                                        <core:ListItem text="财务基本信息" key="002" id="002"></core:ListItem>
+                                                        <core:ListItem text="人事基本信息" key="003" id="003"></core:ListItem>
+                                                        <core:ListItem text="销售基本信息" key="004" id="004"></core:ListItem>
+                                                        <core:ListItem text="客户基本信息" key="005" id="005"></core:ListItem>
+                                                        <core:ListItem text="供应商基本信息" key="006" id="006"></core:ListItem>
+                                                        <core:ListItem text="设备基本信息" key="007" id="007"></core:ListItem>
+                                                        <core:ListItem text="设备分类基本信息" key="008" id="008"></core:ListItem>
+                                                        <core:ListItem text="设备特性基本信息" key="009" id="009"></core:ListItem>
+                                                        <core:ListItem text="功能位置基本信息" key="010" id="010"></core:ListItem>
+                                                        <core:ListItem text="科目基本信息" key="011" id="011"></core:ListItem>
+                                                        <core:ListItem text="科目基本信息" key="011" id="012"></core:ListItem>
                                                     </c:items>
                                                 </c:ComboBox>
                                             </ly:MatrixLayoutCell>
@@ -289,7 +296,7 @@
                                     <ly:MatrixLayoutCell>
                                     </ly:MatrixLayoutCell>
                                     <ly:MatrixLayoutCell>
-                                        <c:Button text="确认" icon = "sap-icon://save" press="onSaveBiaoZhun" />
+                                        <c:Button text="保存" icon = "sap-icon://save" press="onSaveBiaoZhun" />
                                     </ly:MatrixLayoutCell>
                                     <ly:MatrixLayoutCell>
                                         <c:Button text="重置" icon = "sap-icon://refresh" press="onChongZhiBiaoZhun"/>

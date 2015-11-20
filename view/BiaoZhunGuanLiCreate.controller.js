@@ -24,6 +24,20 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiCreate", {
     },
     onChongZhiBiaoZhun: function(){
         this.initializeData();
+    },
+    onChangeZhuTiYu:function(oEvent){
+        // var context = oEvent.oSource.getSelectedKey();
+        var newBiaoZhun = this.getView().getModel("newBiaoZhun").getData().Detail;
+         newBiaoZhun.DsSubdomain=newBiaoZhun.DsDomain;                         
+    //     var cell = this.getView().byId("ziZhuTiYuCreate");
+        // var combobox = this.getView().byId("ziZhuTiYuCreateComboBox");
+        // combobox.setEditable(false);
+    //     cell.removeContent(combobox);
+    //     var oComboBox = new sap.ui.commons.ComboBox({
+    //     	items: [new sap.ui.core.ListItem({text: "物料基本信息", key: "001"})]
+    //     	});
+    //     cell.addContent(oComboBox);
+    //   console.log(newBiaoZhun.DsSubdomain);   
     }
 /**
 * Called when a controller is instantiated and its View controls (if available) are already created.
