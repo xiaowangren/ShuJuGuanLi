@@ -27,6 +27,8 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiQuery", {
         this.getView().byId("zhuTiYuQuery").setSelectedKey("999");
         this.getView().byId("shuJuAnQuanFenJiQuery").setSelectedKey("999");
         this.getView().byId("shiFouYouXiaoQuery").setSelectedKey("999");
+        //缺省状态 根据缺省值去查询  则以缺省条件查询。结果显示前100条
+        
     }
 /**
 * Called when a controller is instantiated and its View controls (if available) are already created.

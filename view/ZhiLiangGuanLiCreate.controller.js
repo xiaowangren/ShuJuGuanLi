@@ -16,9 +16,47 @@ sap.ui.controller("com.zhenergy.data.manager.view.ZhiLiangGuanLiCreate", {
         this.getView().setModel(new sap.ui.model.json.JSONModel(), "newZhiLiang");
         this.initializeData();
 	},
-	onSaveZhiLiang : function(){
+// 	onSaveZhiLiang : function(){
+//         var newZhiLiang = this.getView().getModel("newZhiLiang").getData().Detail;
+//         console.log(newZhiLiang);
+//     },
+    onSaveZhiLiang : function(){
         var newZhiLiang = this.getView().getModel("newZhiLiang").getData().Detail;
         console.log(newZhiLiang);
+        var oModel = this.getView().getModel();
+        //是否提交
+            var dialog = new sap.m.Dialog({
+				title: '确认框',
+				type: 'Message',
+				content: new sap.m.Text({ text: '是否保存?' }),
+				beginButton: new sap.m.Button({
+					text: '确认',
+					press: function () {
+                        oModel.create("/",newZhiLiang, {
+                            success : jQuery.proxy(function() {
+                                // sap.ui.getCore().byId("idSplitApp").app.backToPage("idPersonInfo");
+                                // this.initializeData();
+                                // jQuery.sap.require("sap.m.MessageToast");
+                                sap.m.MessageToast.show("数据质量新增成功");
+                            }, this),
+                            error : jQuery.proxy(function() {
+                                sap.m.MessageToast.show("数据质量新增失败");
+                            }, this)                         
+                        });
+						dialog.close();
+					}
+				}),
+				endButton: new sap.m.Button({
+					text: '取消',
+					press: function () {
+						dialog.close();
+					}
+				}),
+				afterClose: function() {
+					dialog.destroy();
+				}
+			});
+			dialog.open();
     },
     onChongZhiZhiLiang: function(){
         this.initializeData();

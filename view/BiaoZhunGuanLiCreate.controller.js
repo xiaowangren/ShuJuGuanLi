@@ -21,9 +21,48 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiCreate", {
     onSaveBiaoZhun : function(){
         var newBiaoZhun = this.getView().getModel("newBiaoZhun").getData().Detail;
         console.log(newBiaoZhun);
+        var oModel = this.getView().getModel();
+        //是否提交
+            var dialog = new sap.m.Dialog({
+				title: '确认框',
+				type: 'Message',
+				content: new sap.m.Text({ text: '是否保存?' }),
+				beginButton: new sap.m.Button({
+					text: '确认',
+					press: function () {
+                        oModel.create("/",newBiaoZhun, {
+                            success : jQuery.proxy(function() {
+                                // sap.ui.getCore().byId("idSplitApp").app.backToPage("idPersonInfo");
+                                // this.initializeData();
+                                // jQuery.sap.require("sap.m.MessageToast");
+                                sap.m.MessageToast.show("数据标准新增成功");
+                            }, this),
+                            error : jQuery.proxy(function() {
+                                sap.m.MessageToast.show("数据标准新增失败");
+                            }, this)                         
+                        });
+						dialog.close();
+					}
+				}),
+				endButton: new sap.m.Button({
+					text: '取消',
+					press: function () {
+						dialog.close();
+					}
+				}),
+				afterClose: function() {
+					dialog.destroy();
+				}
+			});
+			dialog.open();
     },
     onChongZhiBiaoZhun: function(){
         this.initializeData();
+        var combobox = this.getView().byId("ziZhuTiYuCreateComboBox");
+         combobox.removeAllItems();
+         combobox.addItem(new sap.ui.core.ListItem({text:"",key:"999"}));
+         combobox.setSelectedKey("999");
+         combobox.removeAllItems();
     },
     onChangeZhuTiYu:function(oEvent){
         var context = oEvent.oSource.getSelectedKey();
@@ -91,15 +130,16 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiCreate", {
             combobox.setSelectedKey("999");
         }
         if("999"==key){
-             combobox.addItem(new sap.ui.core.ListItem({text:"",key:"999"}));
+            combobox.addItem(new sap.ui.core.ListItem({text:"",key:"999"}));
             combobox.setSelectedKey("999");
             combobox.removeAllItems();
         }
-    },
-    onSaveBiaoZhun:function(){
-        var newBiaoZhun = this.getView().getModel("newBiaoZhun").getData().Detail;
-        console.log(newBiaoZhun.DsSubdomain);
     }
+    // },
+    // onSaveBiaoZhun:function(){
+    //     var newBiaoZhun = this.getView().getModel("newBiaoZhun").getData().Detail;
+    //     console.log(newBiaoZhun.DsSubdomain);
+    // }
 /**
 * Called when a controller is instantiated and its View controls (if available) are already created.
 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
