@@ -22,9 +22,9 @@
 				var idSplitApp = sap.ui.view({id:"idSplitApp", viewName:"com.zhenergy.data.manager.view.Split", type:sap.ui.core.mvc.ViewType.JS});
 				idSplitApp.placeAt("content");
 				//配置服务器
-				 var sServiceUrl = "/sap/opu/odata/sap/ZHRMS_SRV/";
+				 var sServiceUrl = "/sap/opu/odata/SAP/ZHANA_DATAMGMT_SRV/";
                  var oModel = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
-                 sap.ui.getCore().setModel(oModel);
+                 sap.ui.getCore().setModel(oModel,"oModel");
 		</script>
 
 	</head>

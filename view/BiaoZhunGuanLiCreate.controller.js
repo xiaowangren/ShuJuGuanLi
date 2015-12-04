@@ -3,14 +3,14 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiCreate", {
         // var usrid = jQuery.sap.getUriParameters().get("usrid").toUpperCase();
         this.getView().getModel("newBiaoZhun").setData({
             Detail: {
-                DsDomain: "999",
-                DsSubdomain:"999",
-                DsSecurityLevel:"999",
-                DsType:"999",
-                DsIsnull:"999",
-                DsTechnicalType:"999",
-                DsMappingType:"999",
-                EffectiveStatus:"999"
+                DomainId: "AA",
+                SubdomainId:"BB",
+                SecurityLevelId:"DD",
+                TypeId:"CC",
+                IsnullId:"EE",
+                TechnicalTypeId:"FF",
+                MappingTypeId:"GG",
+                EffectiveStatusId:"HH"
             }
         });
     },
@@ -21,7 +21,15 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiCreate", {
     onSaveBiaoZhun : function(){
         var newBiaoZhun = this.getView().getModel("newBiaoZhun").getData().Detail;
         console.log(newBiaoZhun);
-        var oModel = this.getView().getModel();
+        // var mPayload = {
+        //     DsNameEn:newBiaoZhun.DsNameEn,
+        //     DsNameCn:newBiaoZhun.DsNameCn,
+        //     DomainId:newBiaoZhun.DsDomain,
+        //     SubdomainId:newBiaoZhun.DsSubdomain,
+            
+        // };
+        // var oModel = this.getView().getModel();
+        var oModel = sap.ui.getCore().getModel("oModel");
         //是否提交
             var dialog = new sap.m.Dialog({
 				title: '确认框',
@@ -30,11 +38,11 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiCreate", {
 				beginButton: new sap.m.Button({
 					text: '确认',
 					press: function () {
-                        oModel.create("/",newBiaoZhun, {
+                        oModel.create("/EE_STANDARDSet",newBiaoZhun, {
                             success : jQuery.proxy(function() {
-                                // sap.ui.getCore().byId("idSplitApp").app.backToPage("idPersonInfo");
-                                // this.initializeData();
-                                // jQuery.sap.require("sap.m.MessageToast");
+                                sap.ui.getCore().byId("idSplitApp").app.backToPage("idBzglQuery");
+                                this.initializeData();
+                                jQuery.sap.require("sap.m.MessageToast");
                                 sap.m.MessageToast.show("数据标准新增成功");
                             }, this),
                             error : jQuery.proxy(function() {
@@ -94,22 +102,22 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiCreate", {
 					   // this.initializeData();
                         DsNameCnCreate.setValue();
                         DsNameEnCreate.setValue();
-                        DsDomainCreate.setSelectedKey("999");
+                        DsDomainCreate.setSelectedKey("AA");
                         DsSystemCreate.setValue();
                         DsBusinessCreate.setValue();
-                        DsTypeCreate.setSelectedKey("999");
-                        DsSecurityLevelCreate.setSelectedKey("999");
+                        DsTypeCreate.setSelectedKey("CC");
+                        DsSecurityLevelCreate.setSelectedKey("DD");
                         DsOwnerCreate.setValue();
                         DsRelationshipCreate.setValue();
                         EffectiveVilueCreate.setValue();
-                        DsIsnullCreate.setSelectedKey("999");
+                        DsIsnullCreate.setSelectedKey("EE");
                         DsDefaultCreate.setValue();
-                        DsTechnicalTypeCreate.setSelectedKey("999");
+                        DsTechnicalTypeCreate.setSelectedKey("FF");
                         DsTechnicalFromatCreate.setValue();
-                        DsMappingTypeCreate.setSelectedKey("999");
+                        DsMappingTypeCreate.setSelectedKey("GG");
                         DsMappingTableCreate.setValue();
                         DsTableCodeCreate.setValue();
-                        EffectiveStatusCreate.setSelectedKey("999");
+                        EffectiveStatusCreate.setSelectedKey("HH");
                         CreateDateCreate1.setValue();
                         EffectiveDateCreate1.setValue();
                         ExpiryDateCreate1.setValue();
@@ -117,8 +125,8 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiCreate", {
                         Memo2Create1.setValue();
                         Memo3Create1.setValue();
                         combobox.removeAllItems();
-                        combobox.addItem(new sap.ui.core.ListItem({text:"",key:"999"}));
-                        combobox.setSelectedKey("999");
+                        combobox.addItem(new sap.ui.core.ListItem({text:"",key:"BB"}));
+                        combobox.setSelectedKey("BB");
                         combobox.removeAllItems();
 						dialog.close();
 					}
@@ -146,64 +154,64 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiCreate", {
         var combobox = this.getView().byId("ziZhuTiYuCreateComboBox");
 
         combobox.removeAllItems();
-        if("001"==key){
-            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"999"}));
-            combobox.addItem(new sap.ui.core.ListItem({text:"物料基本信息",key:"001"}));
-            combobox.setSelectedKey("999");
+        if("A1"==key){
+            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"BB"}));
+            combobox.addItem(new sap.ui.core.ListItem({text:"物料基本信息",key:"B1"}));
+            combobox.setSelectedKey("BB");
         }
-        if("002"==key){
-            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"999"}));
-            combobox.addItem(new sap.ui.core.ListItem({text:"财务基本信息",key:"002"}));
-            combobox.setSelectedKey("999");
+        if("A2"==key){
+            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"BB"}));
+            combobox.addItem(new sap.ui.core.ListItem({text:"财务基本信息",key:"B2"}));
+            combobox.setSelectedKey("BB");
         }
-        if("003"==key){
-            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"999"}));
-            combobox.addItem(new sap.ui.core.ListItem({text:"人事基本信息",key:"003"}));
-            combobox.setSelectedKey("999");
+        if("A3"==key){
+            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"BB"}));
+            combobox.addItem(new sap.ui.core.ListItem({text:"人事基本信息",key:"B3"}));
+            combobox.setSelectedKey("BB");
         }
-        if("004"==key){
-            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"999"}));
-            combobox.addItem(new sap.ui.core.ListItem({text:"销售基本信息",key:"004"}));
-            combobox.setSelectedKey("999");
+        if("A4"==key){
+            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"BB"}));
+            combobox.addItem(new sap.ui.core.ListItem({text:"销售基本信息",key:"B4"}));
+            combobox.setSelectedKey("BB");
         }
-        if("005"==key){
-            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"999"}));
-            combobox.addItem(new sap.ui.core.ListItem({text:"客户基本信息",key:"005"}));
-            combobox.setSelectedKey("999");
+        if("A5"==key){
+            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"BB"}));
+            combobox.addItem(new sap.ui.core.ListItem({text:"客户基本信息",key:"B5"}));
+            combobox.setSelectedKey("BB");
         }
-        if("006"==key){
-            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"999"}));
-            combobox.addItem(new sap.ui.core.ListItem({text:"供应商基本信息",key:"006"}));
-            combobox.setSelectedKey("999");
+        if("A6"==key){
+            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"BB"}));
+            combobox.addItem(new sap.ui.core.ListItem({text:"供应商基本信息",key:"B6"}));
+            combobox.setSelectedKey("BB");
         }
-        if("007"==key){
-            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"999"}));
-            combobox.addItem(new sap.ui.core.ListItem({text:"设备基本信息",key:"007"}));
-            combobox.setSelectedKey("999");
+        if("A7"==key){
+            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"BB"}));
+            combobox.addItem(new sap.ui.core.ListItem({text:"设备基本信息",key:"B7"}));
+            combobox.setSelectedKey("BB");
         }
-        if("008"==key){
-            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"999"}));
-            combobox.addItem(new sap.ui.core.ListItem({text:"设备分类基本信息",key:"008"}));
-            combobox.setSelectedKey("999");
+        if("A8"==key){
+            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"BB"}));
+            combobox.addItem(new sap.ui.core.ListItem({text:"设备分类基本信息",key:"B8"}));
+            combobox.setSelectedKey("BB");
         }
-        if("009"==key){
-            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"999"}));
-            combobox.addItem(new sap.ui.core.ListItem({text:"设备特性基本信息",key:"009"}));
-            combobox.setSelectedKey("999");
+        if("A9"==key){
+            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"BB"}));
+            combobox.addItem(new sap.ui.core.ListItem({text:"设备特性基本信息",key:"B9"}));
+            combobox.setSelectedKey("BB");
         }
-        if("010"==key){
-            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"999"}));
-            combobox.addItem(new sap.ui.core.ListItem({text:"功能位置基本信息",key:"010"}));
-            combobox.setSelectedKey("999");
-        }
-        if("011"==key){
-            combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"999"}));
-            combobox.addItem(new sap.ui.core.ListItem({text:"科目基本信息",key:"011"}));
-            combobox.setSelectedKey("999");
-        }
-        if("999"==key){
-            combobox.addItem(new sap.ui.core.ListItem({text:"",key:"999"}));
-            combobox.setSelectedKey("999");
+        // if("010"==key){
+        //     combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"999"}));
+        //     combobox.addItem(new sap.ui.core.ListItem({text:"功能位置基本信息",key:"010"}));
+        //     combobox.setSelectedKey("999");
+        // }
+        // if("011"==key){
+        //     combobox.addItem(new sap.ui.core.ListItem({text:"请选择子主题域",key:"999"}));
+        //     combobox.addItem(new sap.ui.core.ListItem({text:"科目基本信息",key:"011"}));
+        //     combobox.setSelectedKey("999");
+        // }
+        if("AA"==key){
+            combobox.addItem(new sap.ui.core.ListItem({text:"",key:"BB"}));
+            combobox.setSelectedKey("BB");
             combobox.removeAllItems();
         }
     }
