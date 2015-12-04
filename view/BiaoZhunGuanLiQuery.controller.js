@@ -10,14 +10,38 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiQuery", {
         console.log(shuJuBiaoZhunLeiBieQuery+"==="+shuJuXiangBianHaoQuery+"===="+shuJuXiangMingChengQuery);
         console.log(zhuTiYuQuery+"==="+shuJuAnQuanFenJiQuery+"===="+shiFouYouXiaoQuery);
         //调用abap
-            var usrid = jQuery.sap.getUriParameters().get("usrid").toUpperCase();
-    		var oFilters = [];
-    		var oFilter = new sap.ui.model.Filter("Pernr", sap.ui.model.FilterOperator.EQ, usrid);
-    		oFilters.push(oFilter);
-    		// update list binding
-    		var table = sap.ui.getCore().byId("biaoZhunQueryResult");
-    		table.bindRows("/EE_EDUCATION_SET");
-    		table.getBinding("rows").filter(oFilters, sap.ui.model.FilterType.Application);
+        var jModel = new sap.ui.model.json.JSONModel();
+        var table = sap.ui.getCore().byId("biaoZhunQueryResult");
+        var mParameters = {};
+        mParameters['async'] = true;
+        mParameters['success'] = jQuery.proxy(function(data) {
+            // console.log(data);
+            jModel.setData(data);
+            table.setModel(jModel);
+            // console.log(table);
+        }, this);
+        mParameters['error'] = jQuery.proxy(function(data) {
+            sap.m.MessageToast.show("网络连接失败，请重试");
+        }, this);
+        var oModel1 = sap.ui.getCore().getModel("oModel");    
+        oModel1.read("/EE_STANDARDSet?$filter=TypeId eq '"+shuJuBiaoZhunLeiBieQuery+"' and DsCode eq '"+shuJuXiangBianHaoQuery+"' and DsNameEn eq '' and DsNameCn eq '"+shuJuXiangMingChengQuery+"' and DomainId eq '"+zhuTiYuQuery+"' and SecurityLevelId eq '"+shuJuAnQuanFenJiQuery+"' and EffectiveStatusId eq '"+shiFouYouXiaoQuery+"'",mParameters);   // ?$filter=(Status eq 'READY' and TaskDefinitionName eq '请假申请审批')	
+   
+        
+        
+        
+        
+        
+        
+        
+        
+    //         var usrid = jQuery.sap.getUriParameters().get("usrid").toUpperCase();
+    // 		var oFilters = [];
+    // 		var oFilter = new sap.ui.model.Filter("Pernr", sap.ui.model.FilterOperator.EQ, usrid);
+    // 		oFilters.push(oFilter);
+    // 		// update list binding
+    // 		var table = sap.ui.getCore().byId("biaoZhunQueryResult");
+    // 		table.bindRows("/EE_EDUCATION_SET");
+    // 		table.getBinding("rows").filter(oFilters, sap.ui.model.FilterType.Application);
         
     },
     onBiaozhunChongZhi: function(){

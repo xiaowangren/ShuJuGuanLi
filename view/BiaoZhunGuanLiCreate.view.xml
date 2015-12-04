@@ -161,8 +161,8 @@
                                                 <c:ComboBox width="95%" selectedKey="{newBiaoZhun>/Detail/DsIsnull}" id="DsIsnullCreate">
                                                     <c:items>
                                                         <core:ListItem text="请选择可否空值" key="999"></core:ListItem>
-                                                        <core:ListItem text="N" key="false"></core:ListItem>
-                                                        <core:ListItem text="Y" key="true"></core:ListItem>
+                                                        <core:ListItem text="N" key="1"></core:ListItem>
+                                                        <core:ListItem text="Y" key="2"></core:ListItem>
                                                     </c:items>
                                                 </c:ComboBox>
                                             </ly:MatrixLayoutCell>
