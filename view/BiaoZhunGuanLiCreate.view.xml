@@ -203,9 +203,9 @@
                                                 <c:ComboBox width="95%" selectedKey="{newBiaoZhun>/Detail/MappingTypeId}" id="DsMappingTypeCreate">
                                                     <c:items>
                                                         <core:ListItem text="请选择映射类型" key="GG"></core:ListItem>
-                                                        <core:ListItem text="1-计算得出" key="G1"></core:ListItem>
-                                                        <core:ListItem text="2-映射得出" key="G2"></core:ListItem>
-                                                        <core:ListItem text="3-无映射" key="G3"></core:ListItem>
+                                                        <core:ListItem text="计算得出" key="G1"></core:ListItem>
+                                                        <core:ListItem text="映射得出" key="G2"></core:ListItem>
+                                                        <core:ListItem text="无映射" key="G3"></core:ListItem>
                                                     </c:items>
                                                 </c:ComboBox>
                                             </ly:MatrixLayoutCell>

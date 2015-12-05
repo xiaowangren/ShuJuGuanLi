@@ -33,13 +33,13 @@
                                                 <c:Label text="数据项中文名称" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <c:TextField value="{DsNameCn}" width="95%" id="DsNameCnUpdate"/>
+                                                <c:TextField value="{newBiaoZhunUpdate>/DsNameCn}" width="95%" id="DsNameCnUpdate"/>
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
                                                 <c:Label text="数据项英文名称" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <c:TextField value="{DsNameEn}" width="95%" id="DsNameEnUpdate"/>
+                                                <c:TextField value="{newBiaoZhunUpdate>/DsNameEn}" width="95%" id="DsNameEnUpdate"/>
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
                                             </ly:MatrixLayoutCell>
@@ -47,20 +47,18 @@
                                                 <c:Label text="主题域" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <c:ComboBox width="95%" selectedKey="{DsDomain}" id="DsDomainUpdate">
+                                                <c:ComboBox width="95%" selectedKey="{newBiaoZhunUpdate>/DomainId}" id="DsDomainUpdate">
                                                     <c:items>
-                                                        <core:ListItem text="请选择主题域" key="999"></core:ListItem>
-                                                        <core:ListItem text="物资" key="001"></core:ListItem>
-                                                        <core:ListItem text="财务" key="002"></core:ListItem>
-                                                        <core:ListItem text="人事" key="003"></core:ListItem>
-                                                        <core:ListItem text="销售" key="004"></core:ListItem>
-                                                        <core:ListItem text="客户" key="005"></core:ListItem>
-                                                        <core:ListItem text="供应商" key="006"></core:ListItem>
-                                                        <core:ListItem text="设备" key="007"></core:ListItem>
-                                                        <core:ListItem text="设备分类" key="008"></core:ListItem>
-                                                        <core:ListItem text="设备特性" key="009"></core:ListItem>
-                                                        <core:ListItem text="功能位置" key="010"></core:ListItem>
-                                                        <core:ListItem text="科目" key="011"></core:ListItem>
+                                                        <core:ListItem text="请选择主题域" key="AA"></core:ListItem>
+                                                        <core:ListItem text="物资" key="A1"></core:ListItem>
+                                                        <core:ListItem text="财务" key="A2"></core:ListItem>
+                                                        <core:ListItem text="人事" key="A3"></core:ListItem>
+                                                        <core:ListItem text="销售" key="A4"></core:ListItem>
+                                                        <core:ListItem text="客户" key="A5"></core:ListItem>
+                                                        <core:ListItem text="供应商" key="A6"></core:ListItem>
+                                                        <core:ListItem text="设备" key="A7"></core:ListItem>
+                                                        <core:ListItem text="设备分类" key="A8"></core:ListItem>
+                                                        <core:ListItem text="设备特性" key="A9"></core:ListItem>
                                                     </c:items>
                                                 </c:ComboBox>
                                             </ly:MatrixLayoutCell>
@@ -70,7 +68,7 @@
                                                 <c:Label text="子主题域" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <c:ComboBox width="95%" selectedKey="{DsSubdomain}" id="DsSubdomainUpdate">
+                                                <c:ComboBox width="95%" selectedKey="{newBiaoZhunUpdate>/SubdomainId}" id="DsSubdomainUpdate">
                                                     <c:items>
                                                         <!--<core:ListItem text="请选择子主题域" key="999"></core:ListItem>-->
                                                         <!--<core:ListItem text="功能位置基本信息" key="001"></core:ListItem>-->
@@ -85,7 +83,7 @@
                                                 <c:Label text="来源应用系统"/>
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <c:TextField value="{DsSystem}" width="95%" id="DsSystemUpdate"/>
+                                                <c:TextField value="{newBiaoZhunUpdate>/DsSystem}" width="95%" id="DsSystemUpdate"/>
                                             </ly:MatrixLayoutCell>
                                         </ly:MatrixLayoutRow>
                                         <ly:MatrixLayoutRow>
@@ -93,7 +91,7 @@
                                                 <c:Label text="数据项业务定义" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell colSpan="6">
-                                                <c:TextArea value ="{DsBusiness}" cols="90" rows ="3" id="DsBusinessUpdate"></c:TextArea>
+                                                <c:TextArea value ="{newBiaoZhunUpdate>/DsBusiness}" cols="90" rows ="3" id="DsBusinessUpdate"></c:TextArea>
                                             </ly:MatrixLayoutCell>
                                         </ly:MatrixLayoutRow>
                                         <ly:MatrixLayoutRow>
@@ -101,13 +99,13 @@
                                                 <c:Label text="数据标准类别" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <c:ComboBox width="95%" selectedKey="{DsType}" id="DsTypeUpdate">
+                                                <c:ComboBox width="95%" selectedKey="{newBiaoZhunUpdate>/TypeId}" id="DsTypeUpdate">
                                                     <c:items>
-                                                        <core:ListItem text="请选择类别" key="999"></core:ListItem>
-                                                        <core:ListItem text="主数据标准" key="0"></core:ListItem>
-                                                        <core:ListItem text="代码标准" key="1"></core:ListItem>
-                                                        <core:ListItem text="KPI标准" key="2"></core:ListItem>
-                                                        <core:ListItem text="交换数据标准" key="3"></core:ListItem>
+                                                        <core:ListItem text="请选择类别" key="CC"></core:ListItem>
+                                                        <core:ListItem text="主数据标准" key="C1"></core:ListItem>
+                                                        <core:ListItem text="代码标准" key="C2"></core:ListItem>
+                                                        <core:ListItem text="KPI标准" key="C3"></core:ListItem>
+                                                        <core:ListItem text="交换数据标准" key="C4"></core:ListItem>
                                                     </c:items>
                                                 </c:ComboBox>
                                             </ly:MatrixLayoutCell>
@@ -115,13 +113,13 @@
                                                 <c:Label text="数据安全分级" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <c:ComboBox width="95%" selectedKey="{DsSecurityLevel}" id="DsSecurityLevelUpdate">
+                                                <c:ComboBox width="95%" selectedKey="{newBiaoZhunUpdate>/SecurityLevelId}" id="DsSecurityLevelUpdate">
                                                     <c:items>
-                                                        <core:ListItem text="数据安全分级" key="999"></core:ListItem>
-                                                        <core:ListItem text="绝密" key="0"></core:ListItem>
-                                                        <core:ListItem text="机密" key="1"></core:ListItem>
-                                                        <core:ListItem text="秘密" key="2"></core:ListItem>
-                                                        <core:ListItem text="公开" key="3"></core:ListItem>
+                                                        <core:ListItem text="数据安全分级" key="DD"></core:ListItem>
+                                                        <core:ListItem text="绝密" key="D1"></core:ListItem>
+                                                        <core:ListItem text="机密" key="D2"></core:ListItem>
+                                                        <core:ListItem text="秘密" key="D3"></core:ListItem>
+                                                        <core:ListItem text="公开" key="D4"></core:ListItem>
                                                     </c:items>
                                                 </c:ComboBox>
                                             </ly:MatrixLayoutCell>
@@ -130,7 +128,7 @@
                                                 <c:Label text="数据标准负责人" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <c:TextField value="{DsOwner}" width="95%" id="DsOwnerUpdate"/>
+                                                <c:TextField value="{newBiaoZhunUpdate>/DsOwner}" width="95%" id="DsOwnerUpdate"/>
                                             </ly:MatrixLayoutCell>
                                         </ly:MatrixLayoutRow>
                                         <ly:MatrixLayoutRow>
@@ -138,7 +136,7 @@
                                                 <c:Label text="相关数据运算关系" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell colSpan="6">
-                                                <c:TextArea value ="{DsRelationship}" cols="90" rows ="3" id="DsRelationshipUpdate"></c:TextArea>
+                                                <c:TextArea value ="{newBiaoZhunUpdate>/DsRelationship}" cols="90" rows ="3" id="DsRelationshipUpdate"></c:TextArea>
                                             </ly:MatrixLayoutCell>
                                         </ly:MatrixLayoutRow>
                                         <ly:MatrixLayoutRow>
@@ -146,17 +144,17 @@
                                                 <c:Label text="有效预值" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <c:TextArea value ="{EffectiveVilue}" cols="14" rows ="3" id="EffectiveVilueUpdate"></c:TextArea>
+                                                <c:TextArea value ="{newBiaoZhunUpdate>/EffectiveVilue}" cols="14" rows ="3" id="EffectiveVilueUpdate"></c:TextArea>
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
                                                 <c:Label text="可否空值" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <c:ComboBox width="95%" selectedKey="{DsIsnull}" id="DsIsnullUpdate">
+                                                <c:ComboBox width="95%" selectedKey="{newBiaoZhunUpdate>/IsnullId}" id="DsIsnullUpdate">
                                                     <c:items>
-                                                        <core:ListItem text="请选择可否空值" key="999"></core:ListItem>
-                                                        <core:ListItem text="N" key="false"></core:ListItem>
-                                                        <core:ListItem text="Y" key="true"></core:ListItem>
+                                                        <core:ListItem text="请选择可否空值" key="EE"></core:ListItem>
+                                                        <core:ListItem text="N" key="E2"></core:ListItem>
+                                                        <core:ListItem text="Y" key="E1"></core:ListItem>
                                                     </c:items>
                                                 </c:ComboBox>
                                             </ly:MatrixLayoutCell>
@@ -166,7 +164,7 @@
                                                 <c:Label text="默认值" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <c:TextField value="{DsDefault}" width="95%" id="DsDefaultUpdate"/>
+                                                <c:TextField value="{newBiaoZhunUpdate>/DsDefault}" width="95%" id="DsDefaultUpdate"/>
                                             </ly:MatrixLayoutCell>
                                         </ly:MatrixLayoutRow>
                                         <ly:MatrixLayoutRow>
@@ -174,14 +172,13 @@
                                                 <c:Label text="数据的技术类型" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <c:ComboBox width="95%" selectedKey="{DsTechnicalType}" id="DsTechnicalTypeUpdate">
+                                                <c:ComboBox width="95%" selectedKey="{newBiaoZhunUpdate>/TechnicalTypeId}" id="DsTechnicalTypeUpdate">
                                                     <c:items>
-                                                        <core:ListItem text="请选择技术类型" key="999"></core:ListItem>
-                                                        <core:ListItem text="Varchar" key="Varchar"></core:ListItem>
-                                                        <core:ListItem text="Char" key="Char"></core:ListItem>
-                                                        <core:ListItem text="Int" key="Int"></core:ListItem>
-                                                        <core:ListItem text="Text" key="Text"></core:ListItem>
-                                                        <core:ListItem text="Boolean" key="Boolean"></core:ListItem>
+                                                        <core:ListItem text="请选择技术类型" key="FF"></core:ListItem>
+                                                        <core:ListItem text="Varchar" key="F1"></core:ListItem>
+                                                        <core:ListItem text="Char" key="F2"></core:ListItem>
+                                                        <core:ListItem text="Int" key="F3"></core:ListItem>
+                                                        <core:ListItem text="Text" key="F4"></core:ListItem>
                                                     </c:items>
                                                 </c:ComboBox>
                                             </ly:MatrixLayoutCell>
@@ -189,7 +186,7 @@
                                                 <c:Label text="数据的技术格式" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <c:TextField value="{DsTechnicalFromat}" width="95%" id="DsTechnicalFromatUpdate"/>
+                                                <c:TextField value="{newBiaoZhunUpdate>/DsTechnicalFromat}" width="95%" id="DsTechnicalFromatUpdate"/>
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
                                             </ly:MatrixLayoutCell>
@@ -197,12 +194,12 @@
                                                 <c:Label text="映射类型" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <c:ComboBox width="95%" selectedKey="{DsMappingType}" id="DsMappingTypeUpdate">
+                                                <c:ComboBox width="95%" selectedKey="{newBiaoZhunUpdate>/MappingTypeId}" id="DsMappingTypeUpdate">
                                                     <c:items>
-                                                        <core:ListItem text="请选择映射类型" key="999"></core:ListItem>
-                                                        <core:ListItem text="1-计算得出" key="1"></core:ListItem>
-                                                        <core:ListItem text="2-映射得出" key="2"></core:ListItem>
-                                                        <core:ListItem text="3-无映射" key="3"></core:ListItem>
+                                                        <core:ListItem text="请选择映射类型" key="GG"></core:ListItem>
+                                                        <core:ListItem text="计算得出" key="G1"></core:ListItem>
+                                                        <core:ListItem text="映射得出" key="G2"></core:ListItem>
+                                                        <core:ListItem text="无映射" key="G3"></core:ListItem>
                                                     </c:items>
                                                 </c:ComboBox>
                                             </ly:MatrixLayoutCell>
@@ -212,13 +209,13 @@
                                                 <c:Label text="映射表" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <c:TextField value="{DsMappingTable}" width="95%" id="DsMappingTableUpdate"/>
+                                                <c:TextField value="{newBiaoZhunUpdate>/DsMappingTable}" width="95%" id="DsMappingTableUpdate"/>
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
                                                 <c:Label text="引用代码编号" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <c:TextField value="{DsTableCode}" width="95%" id="DsTableCodeUpdate"/>
+                                                <c:TextField value="{newBiaoZhunUpdate>/DsTableCode}" width="95%" id="DsTableCodeUpdate"/>
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
                                             </ly:MatrixLayoutCell>
@@ -226,11 +223,11 @@
                                                 <c:Label text="是否有效" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <c:ComboBox width="95%" selectedKey="{EffectiveStatus}" id="EffectiveStatusUpdate2">
+                                                <c:ComboBox width="95%" selectedKey="{newBiaoZhunUpdate>/EffectiveStatusId}" id="EffectiveStatusUpdate2">
                                                     <c:items>
-                                                        <core:ListItem text="请选择是否有效" key="999"></core:ListItem>
-                                                        <core:ListItem text="N" key="false"></core:ListItem>
-                                                        <core:ListItem text="Y" key="true"></core:ListItem>
+                                                        <core:ListItem text="请选择是否有效" key="HH"></core:ListItem>
+                                                        <core:ListItem text="N" key="H2"></core:ListItem>
+                                                        <core:ListItem text="Y" key="H1"></core:ListItem>
                                                     </c:items>
                                                 </c:ComboBox>
                                             </ly:MatrixLayoutCell>
@@ -240,13 +237,13 @@
                                                 <c:Label text="创建日期" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <DatePicker value="{CreateDate}" valueFormat="yyyyMMdd" width="95%" id="CreateDateUpdate2"></DatePicker>
+                                                <DatePicker value="{newBiaoZhunUpdate>/CreateDate}" valueFormat="yyyyMMdd" width="95%" id="CreateDateUpdate2"></DatePicker>
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
                                                 <c:Label text="生效日期" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <DatePicker value="{EffectiveDate}" valueFormat="yyyyMMdd" width="95%" id="EffectiveDateUpdate2"></DatePicker>
+                                                <DatePicker value="{newBiaoZhunUpdate>/EffectiveDate}" valueFormat="yyyyMMdd" width="95%" id="EffectiveDateUpdate2"></DatePicker>
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
                                             </ly:MatrixLayoutCell>
@@ -254,7 +251,7 @@
                                                 <c:Label text="失效日期" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <DatePicker value="{ExpiryDate}" valueFormat="yyyyMMdd" width="95%" id="ExpiryDateUpdate2"></DatePicker>
+                                                <DatePicker value="{newBiaoZhunUpdate>/ExpiryDate}" valueFormat="yyyyMMdd" width="95%" id="ExpiryDateUpdate2"></DatePicker>
                                             </ly:MatrixLayoutCell>
                                         </ly:MatrixLayoutRow>
                                         <ly:MatrixLayoutRow>
@@ -262,13 +259,13 @@
                                                 <c:Label text="备用1" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <c:TextField value="{Memo1}" width="95%" id="Memo1Update2"/>
+                                                <c:TextField value="{newBiaoZhunUpdate>/Memo1}" width="95%" id="Memo1Update2"/>
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
                                                 <c:Label text="备用2" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <c:TextField value="{Memo2}" width="95%" id="Memo2Update2"/>
+                                                <c:TextField value="{newBiaoZhunUpdate>/Memo2}" width="95%" id="Memo2Update2"/>
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
                                             </ly:MatrixLayoutCell>
@@ -276,7 +273,7 @@
                                                 <c:Label text="备用3" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <c:TextField value="{Memo3}" width="95%" id="Memo3Update2"/>
+                                                <c:TextField value="{newBiaoZhunUpdate>/Memo3}" width="95%" id="Memo3Update2"/>
                                             </ly:MatrixLayoutCell>
                                         </ly:MatrixLayoutRow>
                                     </ly:MatrixLayout>
@@ -295,7 +292,8 @@
                                         <c:Button text="重置" icon = "sap-icon://refresh" press="onCancel"/>
                                     </ly:MatrixLayoutCell>
                                     <ly:MatrixLayoutCell>
-                                        <c:Button text="删除" icon = "sap-icon://sys-cancel" press="onCancel"/>
+                                        <c:Button text="删除" icon = "sap-icon://sys-cancel" press="onDelete"/>
+                                        <c:Label text="{newBiaoZhunUpdate>/DsCode}" visible="false" id="DsCodeUpdate"/>
                                     </ly:MatrixLayoutCell>
                                     <ly:MatrixLayoutCell>
                                     </ly:MatrixLayoutCell>

@@ -16,9 +16,17 @@ sap.ui.jsview("com.zhenergy.data.manager.view.BiaoZhunGuanLiResult", {
         	fixedColumnCount: 0,
         	rowSelectionChange:function(oEvent){
         	    var rowContext = oEvent.getParameters().rowContext;
-        		sap.ui.getCore().byId("idSplitApp").app.to("idBzglUpdate", rowContext);
+         	    var table = sap.ui.getCore().byId("biaoZhunQueryResult");
+         	    var model = table.getModel(); 
+         	    var data  = model.getProperty(rowContext.sPath);
+         	    sap.ui.getCore().byId("idSplitApp").app.to("idBzglUpdate", rowContext);
         		var page = sap.ui.getCore().byId("idSplitApp").app.getPage("idBzglUpdate");
-         	    page.setBindingContext(rowContext);
+        // 		var dsNameCn= data["DsNameCn"];
+        // 		console.log(data["DsNameCn"]);
+        //   	    page.setBindingContext(rowContext);     
+          	    var oModel = new sap.ui.model.json.JSONModel(data);
+			    page.setModel(oModel,"newBiaoZhunUpdate");
+         	    
         	}
         	
         }); 
@@ -154,7 +162,7 @@ sap.ui.jsview("com.zhenergy.data.manager.view.BiaoZhunGuanLiResult", {
         	width: "120px",
         	hAlign: "Center"
         }));
-         oTable2.bindRows("/results");
+         oTable2.bindRows("/mataModel");
         var tab = new sap.ui.commons.Tab({
             verticalScrolling:sap.ui.core.Scrolling.Hidden,
             horizontalScrolling:sap.ui.core.Scrolling.Hidden,

@@ -7,34 +7,6 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiResult", {
 * @memberOf com.zhenergy.data.manager.view.BiaoZhunGuanLiResult
 */
 	onInit: function() {
-//         	    var aData = [
-// {num:"1",yingwen:"EQUI_CODE",zhongwen:"设备编码",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-// {num:"2",yingwen:"EQUI_DESC",zhongwen:"设备描述",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-// {num:"3",yingwen:"EQUI_STATUS",zhongwen:"设备状态",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-// {num:"4",yingwen:"MADE_BY",zhongwen:"制造商",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-// {num:"5",yingwen:"PIC_NO",zhongwen:"图号",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-// {num:"6",yingwen:"INSTALL_PLA",zhongwen:"安装地点",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-// {num:"7",yingwen:"WEIGHT",zhongwen:"重量",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-// {num:"8",yingwen:"EQUI_CLAS",zhongwen:"设备分类",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-// {num:"9",yingwen:"UNIT",zhongwen:"重量单位",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-// {num:"10",yingwen:"SERIAL_NO",zhongwen:"序列号",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-// {num:"11",yingwen:"SPECIFICATION",zhongwen:"规格",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-// {num:"1",yingwen:"EQUI_CODE",zhongwen:"设备编码",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-// {num:"2",yingwen:"EQUI_DESC",zhongwen:"设备描述",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-// {num:"3",yingwen:"EQUI_STATUS",zhongwen:"设备状态",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-// {num:"4",yingwen:"MADE_BY",zhongwen:"制造商",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-// {num:"5",yingwen:"PIC_NO",zhongwen:"图号",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-// {num:"6",yingwen:"INSTALL_PLA",zhongwen:"安装地点",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-// {num:"7",yingwen:"WEIGHT",zhongwen:"重量",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-// {num:"8",yingwen:"EQUI_CLAS",zhongwen:"设备分类",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-// {num:"9",yingwen:"UNIT",zhongwen:"重量单位",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-// {num:"10",yingwen:"SERIAL_NO",zhongwen:"序列号",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-// {num:"11",yingwen:"SPECIFICATION",zhongwen:"规格",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-// {num:"12",yingwen:"PROFESS",zhongwen:"专业",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"}
-//         ];
-        
-        
-        
 	}
 
 /**

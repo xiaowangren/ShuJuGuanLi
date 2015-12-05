@@ -20,7 +20,6 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiCreate", {
 	},
     onSaveBiaoZhun : function(){
         var newBiaoZhun = this.getView().getModel("newBiaoZhun").getData().Detail;
-        console.log(newBiaoZhun);
         // var mPayload = {
         //     DsNameEn:newBiaoZhun.DsNameEn,
         //     DsNameCn:newBiaoZhun.DsNameCn,
@@ -41,7 +40,6 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiCreate", {
                         oModel.create("/EE_STANDARDSet",newBiaoZhun, {
                             success : jQuery.proxy(function() {
                                 sap.ui.getCore().byId("idSplitApp").app.backToPage("idBzglQuery");
-                                this.initializeData();
                                 jQuery.sap.require("sap.m.MessageToast");
                                 sap.m.MessageToast.show("数据标准新增成功");
                             }, this),

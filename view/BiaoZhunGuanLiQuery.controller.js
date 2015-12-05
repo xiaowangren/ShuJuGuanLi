@@ -7,16 +7,16 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiQuery", {
         var zhuTiYuQuery = this.getView().byId("zhuTiYuQuery").getSelectedKey();
         var shuJuAnQuanFenJiQuery = this.getView().byId("shuJuAnQuanFenJiQuery").getSelectedKey();
         var shiFouYouXiaoQuery = this.getView().byId("shiFouYouXiaoQuery").getSelectedKey();
-        console.log(shuJuBiaoZhunLeiBieQuery+"==="+shuJuXiangBianHaoQuery+"===="+shuJuXiangMingChengQuery);
-        console.log(zhuTiYuQuery+"==="+shuJuAnQuanFenJiQuery+"===="+shiFouYouXiaoQuery);
+        // console.log(shuJuBiaoZhunLeiBieQuery+"==="+shuJuXiangBianHaoQuery+"===="+shuJuXiangMingChengQuery);
+        // console.log(zhuTiYuQuery+"==="+shuJuAnQuanFenJiQuery+"===="+shiFouYouXiaoQuery);
         //调用abap
         var jModel = new sap.ui.model.json.JSONModel();
         var table = sap.ui.getCore().byId("biaoZhunQueryResult");
         var mParameters = {};
         mParameters['async'] = true;
         mParameters['success'] = jQuery.proxy(function(data) {
-            // console.log(data);
-            jModel.setData(data);
+             console.log(data.results);
+            jModel.setData({mataModel:data.results});
             table.setModel(jModel);
             // console.log(table);
         }, this);
