@@ -39,6 +39,7 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiCreate", {
 					press: function () {
                         oModel.create("/EE_STANDARDSet",newBiaoZhun, {
                             success : jQuery.proxy(function() {
+                                sap.ui.controller("com.zhenergy.data.manager.view.MyMaster").onBiaoZhunFunction();
                                 sap.ui.getCore().byId("idSplitApp").app.backToPage("idBzglQuery");
                                 jQuery.sap.require("sap.m.MessageToast");
                                 sap.m.MessageToast.show("数据标准新增成功");

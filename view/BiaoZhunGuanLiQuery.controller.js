@@ -25,15 +25,6 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiQuery", {
         }, this);
         var oModel1 = sap.ui.getCore().getModel("oModel");    
         oModel1.read("/EE_STANDARDSet?$filter=TypeId eq '"+shuJuBiaoZhunLeiBieQuery+"' and DsCode eq '"+shuJuXiangBianHaoQuery+"' and DsNameEn eq '' and DsNameCn eq '"+shuJuXiangMingChengQuery+"' and DomainId eq '"+zhuTiYuQuery+"' and SecurityLevelId eq '"+shuJuAnQuanFenJiQuery+"' and EffectiveStatusId eq '"+shiFouYouXiaoQuery+"'",mParameters);   // ?$filter=(Status eq 'READY' and TaskDefinitionName eq '请假申请审批')	
-   
-        
-        
-        
-        
-        
-        
-        
-        
     //         var usrid = jQuery.sap.getUriParameters().get("usrid").toUpperCase();
     // 		var oFilters = [];
     // 		var oFilter = new sap.ui.model.Filter("Pernr", sap.ui.model.FilterOperator.EQ, usrid);
@@ -45,12 +36,12 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiQuery", {
         
     },
     onBiaozhunChongZhi: function(){
-        this.getView().byId("shuJuBiaoZhunLeiBieQuery").setSelectedKey("999");
-        this.getView().byId("shuJuXiangBianHaoQuery").setValue();
-        this.getView().byId("shuJuXiangMingChengQuery").setValue();
-        this.getView().byId("zhuTiYuQuery").setSelectedKey("999");
-        this.getView().byId("shuJuAnQuanFenJiQuery").setSelectedKey("999");
-        this.getView().byId("shiFouYouXiaoQuery").setSelectedKey("999");
+        sap.ui.getCore().byId("idBzglQuery").byId("shuJuBiaoZhunLeiBieQuery").setSelectedKey("CC");
+        sap.ui.getCore().byId("idBzglQuery").byId("shuJuXiangBianHaoQuery").setValue();
+        sap.ui.getCore().byId("idBzglQuery").byId("shuJuXiangMingChengQuery").setValue();
+        sap.ui.getCore().byId("idBzglQuery").byId("zhuTiYuQuery").setSelectedKey("AA");
+        sap.ui.getCore().byId("idBzglQuery").byId("shuJuAnQuanFenJiQuery").setSelectedKey("DD");
+        sap.ui.getCore().byId("idBzglQuery").byId("shiFouYouXiaoQuery").setSelectedKey("HH");
         //缺省状态 根据缺省值去查询  则以缺省条件查询。结果显示前100条
         
     }

@@ -289,10 +289,10 @@
                                         <c:Button text="保存" icon = "sap-icon://save" press="onSave" />
                                     </ly:MatrixLayoutCell>
                                     <ly:MatrixLayoutCell>
-                                        <c:Button text="重置" icon = "sap-icon://refresh" press="onCancel"/>
+                                        <c:Button text="重置" icon = "sap-icon://refresh" press="onChongZhiBiaozhun"/>
                                     </ly:MatrixLayoutCell>
                                     <ly:MatrixLayoutCell>
-                                        <c:Button text="删除" icon = "sap-icon://sys-cancel" press="onDelete"/>
+                                        <c:Button text="删除" icon = "sap-icon://sys-cancel" press="onDeleteBiaozhun"/>
                                         <c:Label text="{newBiaoZhunUpdate>/DsCode}" visible="false" id="DsCodeUpdate"/>
                                     </ly:MatrixLayoutCell>
                                     <ly:MatrixLayoutCell>

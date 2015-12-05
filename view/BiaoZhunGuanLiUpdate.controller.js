@@ -8,16 +8,9 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiUpdate", {
 	onInit: function() {
 
 	},
-	onDelete:function(){
-	   // var context = oEvent.getSource().getBindingContext();
-    	       // var sPath =context.sPath;
-    // 	var page = sap.ui.getCore().byId("idSplitApp").app.getPage("idBzglUpdate");
-    // 	var oModel =page.getModel("newBiaoZhunUpdate");
+	onDeleteBiaozhun:function(){
     	var oModel =sap.ui.getCore().getModel("oModel");
     	var id = this.getView().byId("DsCodeUpdate").getText();
-    	console.log(oModel);
-
-
     	var dialog = new sap.m.Dialog({
 			title: '确认框',
 			type: 'Message',
@@ -27,23 +20,8 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiUpdate", {
 				press: function () {
                     oModel.remove("/EE_STANDARDSet('"+id+"')", {
                         success : jQuery.proxy(function() {
+                            sap.ui.controller("com.zhenergy.data.manager.view.MyMaster").onBiaoZhunFunction();
                             sap.ui.getCore().byId("idSplitApp").app.backToPage("idBzglQuery");
-                                    var jModel = new sap.ui.model.json.JSONModel();
-        var table = sap.ui.getCore().byId("biaoZhunQueryResult");
-        var mParameters = {};
-        mParameters['async'] = true;
-        mParameters['success'] = jQuery.proxy(function(data) {
-             console.log(data.results);
-            jModel.setData({mataModel:data.results});
-            table.setModel(jModel);
-            // console.log(table);
-        }, this);
-        mParameters['error'] = jQuery.proxy(function(data) {
-            sap.m.MessageToast.show("网络连接失败，请重试");
-        }, this);
-        var oModel1 = sap.ui.getCore().getModel("oModel");    
-        oModel1.read("/EE_STANDARDSet?$filter=TypeId eq '"+shuJuBiaoZhunLeiBieQuery+"' and DsCode eq '"+shuJuXiangBianHaoQuery+"' and DsNameEn eq '' and DsNameCn eq '"+shuJuXiangMingChengQuery+"' and DomainId eq '"+zhuTiYuQuery+"' and SecurityLevelId eq '"+shuJuAnQuanFenJiQuery+"' and EffectiveStatusId eq '"+shiFouYouXiaoQuery+"'",mParameters);   // ?$filter=(Status eq 'READY' and TaskDefinitionName eq '请假申请审批')	
-   
                             jQuery.sap.require("sap.m.MessageToast");
                             sap.m.MessageToast.show("删除成功");
                         }, this),
@@ -65,8 +43,67 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiUpdate", {
 			}
 		});
 		dialog.open();
-		
+	},
+	onChongZhiBiaozhun:function(){
+            var combobox = this.getView().byId("ziZhuTiYuCreateComboBox");
+            var DsNameCnCreate = this.getView().byId("DsNameCnCreate");
+            var DsNameEnCreate = this.getView().byId("DsNameEnCreate");
+            var DsDomainCreate = this.getView().byId("DsDomainCreate");
+            var DsSystemCreate = this.getView().byId("DsSystemCreate");
+            var DsBusinessCreate = this.getView().byId("DsBusinessCreate");
+            var DsTypeCreate = this.getView().byId("DsTypeCreate");
+            var DsSecurityLevelCreate = this.getView().byId("DsSecurityLevelCreate");
+            var DsOwnerCreate = this.getView().byId("DsOwnerCreate");
+            var DsRelationshipCreate = this.getView().byId("DsRelationshipCreate");
+            var EffectiveVilueCreate = this.getView().byId("EffectiveVilueCreate");
+            var DsIsnullCreate = this.getView().byId("DsIsnullCreate");
+            var DsDefaultCreate = this.getView().byId("DsDefaultCreate");
+            var DsTechnicalTypeCreate = this.getView().byId("DsTechnicalTypeCreate");
+            var DsTechnicalFromatCreate = this.getView().byId("DsTechnicalFromatCreate");
+            var DsMappingTypeCreate = this.getView().byId("DsMappingTypeCreate");
+            var DsMappingTableCreate = this.getView().byId("DsMappingTableCreate");
+            var DsTableCodeCreate = this.getView().byId("DsTableCodeCreate");
+            var EffectiveStatusCreate = this.getView().byId("EffectiveStatusCreate");
+            var CreateDateCreate1 = this.getView().byId("CreateDateCreate1");
+            var EffectiveDateCreate1 = this.getView().byId("EffectiveDateCreate1");
+            var ExpiryDateCreate1 = this.getView().byId("ExpiryDateCreate1");
+            var Memo1Create1 = this.getView().byId("Memo1Create1");
+            var Memo2Create1 = this.getView().byId("Memo2Create1");
+            var Memo3Create1 = this.getView().byId("Memo3Create1");
+            
+            
+            var page = sap.ui.getCore().byId("idSplitApp").app.getPage("idBzglUpdate");
+         	page.setModel(oModel,"newBiaoZhunUpdate");
+         	
+         	
+         	
+         	
+    		var dialog = new sap.m.Dialog({
+			title: '确认框',
+			type: 'Message',
+			content: new sap.m.Text({ text: '是否重置?' }),
+			beginButton: new sap.m.Button({
+				text: '是',
+				press: function () {
 
+
+
+
+
+					dialog.close();
+				}
+			}),
+			endButton: new sap.m.Button({
+				text: '否',
+				press: function () {
+					dialog.close();
+				}
+			}),
+			afterClose: function() {
+				dialog.destroy();
+			}
+		});
+		dialog.open();
 	}
 
 /**
