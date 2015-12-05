@@ -44,6 +44,52 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiUpdate", {
 		});
 		dialog.open();
 	},
+	onUpdateBiaoZhun:function(){
+	    var newBiaoZhunUpdate = this.getView().getModel("newBiaoZhunUpdate").getData(); 
+	    newBiaoZhunUpdate["DsDomain"]="";
+	    newBiaoZhunUpdate["DsMappingType"]="";
+	    newBiaoZhunUpdate["DsSecurityLevel"]="";
+	    newBiaoZhunUpdate["DsSubdomain"]="";
+	    newBiaoZhunUpdate["DsTechnicalType"]="";
+	    newBiaoZhunUpdate["DsType"]="";
+	    newBiaoZhunUpdate["EffectiveStatus"]="";
+	    newBiaoZhunUpdate["DsIsnull"]="";
+	    var id= newBiaoZhunUpdate["DsCode"];
+        var oModel = sap.ui.getCore().getModel("oModel");
+        //是否提交
+            var dialog = new sap.m.Dialog({
+				title: '确认框',
+				type: 'Message',
+				content: new sap.m.Text({ text: '是否保存?' }),
+				beginButton: new sap.m.Button({
+					text: '确认',
+					press: function () {
+                        oModel.update("/EE_STANDARDSet('"+id+"')",newBiaoZhunUpdate, {
+                            success : jQuery.proxy(function() {
+                                sap.ui.controller("com.zhenergy.data.manager.view.MyMaster").onBiaoZhunFunction();
+                                sap.ui.getCore().byId("idSplitApp").app.backToPage("idBzglQuery");
+                                jQuery.sap.require("sap.m.MessageToast");
+                                sap.m.MessageToast.show("数据标准修改成功");
+                            }, this),
+                            error : jQuery.proxy(function() {
+                                sap.m.MessageToast.show("数据标准修改失败");
+                            }, this)                         
+                        });
+						dialog.close();
+					}
+				}),
+				endButton: new sap.m.Button({
+					text: '取消',
+					press: function () {
+						dialog.close();
+					}
+				}),
+				afterClose: function() {
+					dialog.destroy();
+				}
+			});
+			dialog.open();
+	},
 	onChongZhiBiaozhun:function(){
             var combobox = this.getView().byId("ziZhuTiYuCreateComboBox");
             var DsNameCnCreate = this.getView().byId("DsNameCnCreate");
