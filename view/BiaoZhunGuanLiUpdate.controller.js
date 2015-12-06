@@ -91,39 +91,52 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiUpdate", {
 			dialog.open();
 	},
 	onChongZhiBiaozhun:function(){
-            var combobox = this.getView().byId("ziZhuTiYuCreateComboBox");
-            var DsNameCnCreate = this.getView().byId("DsNameCnCreate");
-            var DsNameEnCreate = this.getView().byId("DsNameEnCreate");
-            var DsDomainCreate = this.getView().byId("DsDomainCreate");
-            var DsSystemCreate = this.getView().byId("DsSystemCreate");
-            var DsBusinessCreate = this.getView().byId("DsBusinessCreate");
-            var DsTypeCreate = this.getView().byId("DsTypeCreate");
-            var DsSecurityLevelCreate = this.getView().byId("DsSecurityLevelCreate");
-            var DsOwnerCreate = this.getView().byId("DsOwnerCreate");
-            var DsRelationshipCreate = this.getView().byId("DsRelationshipCreate");
-            var EffectiveVilueCreate = this.getView().byId("EffectiveVilueCreate");
-            var DsIsnullCreate = this.getView().byId("DsIsnullCreate");
-            var DsDefaultCreate = this.getView().byId("DsDefaultCreate");
-            var DsTechnicalTypeCreate = this.getView().byId("DsTechnicalTypeCreate");
-            var DsTechnicalFromatCreate = this.getView().byId("DsTechnicalFromatCreate");
-            var DsMappingTypeCreate = this.getView().byId("DsMappingTypeCreate");
-            var DsMappingTableCreate = this.getView().byId("DsMappingTableCreate");
-            var DsTableCodeCreate = this.getView().byId("DsTableCodeCreate");
-            var EffectiveStatusCreate = this.getView().byId("EffectiveStatusCreate");
-            var CreateDateCreate1 = this.getView().byId("CreateDateCreate1");
-            var EffectiveDateCreate1 = this.getView().byId("EffectiveDateCreate1");
-            var ExpiryDateCreate1 = this.getView().byId("ExpiryDateCreate1");
-            var Memo1Create1 = this.getView().byId("Memo1Create1");
-            var Memo2Create1 = this.getView().byId("Memo2Create1");
-            var Memo3Create1 = this.getView().byId("Memo3Create1");
+	    var DsCodeUpdate = this.getView().byId("DsCodeUpdate").getText();
+        //  	var DsNameEnUpdates = this.getView().byId("DsNameEnUpdates").getText();
+         	
+        //调用abap
+        // var jModel = new sap.ui.model.json.JSONModel();
+        var result = "";
+        var mParameters = {};
+        mParameters['async'] = true;
+        mParameters['success'] = jQuery.proxy(function(data) {
+            result = data.results[0];
+        }, this);
+        mParameters['error'] = jQuery.proxy(function(data) {
+            sap.m.MessageToast.show("网络连接失败，请重试");
+        }, this);
+        var oModel1 = sap.ui.getCore().getModel("oModel");    
+        oModel1.read("/EE_STANDARDSet?$filter=TypeId eq 'CC' and DsCode eq '"+DsCodeUpdate+"' and DsNameEn eq '' and DsNameCn eq '' and DomainId eq 'AA' and SecurityLevelId eq 'DD' and EffectiveStatusId eq 'HH'",mParameters);   
+         	
+         	var DsNameCnUpdate = this.getView().byId("DsNameCnUpdate");
+            var DsNameEnUpdate = this.getView().byId("DsNameEnUpdate");
+            var DsDomainUpdate = this.getView().byId("DsDomainUpdate");
+            var DsSubdomainUpdate = this.getView().byId("DsSubdomainUpdate");
+            var DsSystemUpdate = this.getView().byId("DsSystemUpdate");
+            var DsBusinessUpdate = this.getView().byId("DsBusinessUpdate");
             
+            var DsTypeUpdate = this.getView().byId("DsTypeUpdate");
+            var DsSecurityLevelUpdate = this.getView().byId("DsSecurityLevelUpdate");
+            var DsOwnerUpdate = this.getView().byId("DsOwnerUpdate");
+            var DsRelationshipUpdate = this.getView().byId("DsRelationshipUpdate");
+            var EffectiveVilueUpdate = this.getView().byId("EffectiveVilueUpdate");
+            var DsIsnullUpdate = this.getView().byId("DsIsnullUpdate");
             
-            var page = sap.ui.getCore().byId("idSplitApp").app.getPage("idBzglUpdate");
-         	page.setModel(oModel,"newBiaoZhunUpdate");
-         	
-         	
-         	
-         	
+            var DsDefaultUpdate = this.getView().byId("DsDefaultUpdate");
+            var DsTechnicalTypeUpdate = this.getView().byId("DsTechnicalTypeUpdate");
+            var DsTechnicalFromatUpdate = this.getView().byId("DsTechnicalFromatUpdate");
+            var DsMappingTypeUpdate = this.getView().byId("DsMappingTypeUpdate");
+            var DsMappingTableUpdate = this.getView().byId("DsMappingTableUpdate");
+            
+            var DsTableCodeUpdate = this.getView().byId("DsTableCodeUpdate");
+            var EffectiveStatusUpdate2 = this.getView().byId("EffectiveStatusUpdate2");
+            var CreateDateUpdate2 = this.getView().byId("CreateDateUpdate2");
+            var EffectiveDateUpdate2 = this.getView().byId("EffectiveDateUpdate2");
+            var ExpiryDateUpdate2 = this.getView().byId("ExpiryDateUpdate2");
+            var Memo1Update2 = this.getView().byId("Memo1Update2");
+            var Memo2Update2 = this.getView().byId("Memo2Update2");
+            var Memo3Update2 = this.getView().byId("Memo3Update2");
+
     		var dialog = new sap.m.Dialog({
 			title: '确认框',
 			type: 'Message',
@@ -131,11 +144,35 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiUpdate", {
 			beginButton: new sap.m.Button({
 				text: '是',
 				press: function () {
-
-
-
-
-
+                    DsNameCnUpdate.setValue(result.DsNameCn);
+                    DsNameEnUpdate.setValue(result.DsNameEn);
+                    DsDomainUpdate.setSelectedKey(result.DomainId);
+                    DsSubdomainUpdate.setSelectedKey(result.SubdomainId);
+                    DsBusinessUpdate.setValue(result.DsBusiness);
+                    DsSystemUpdate.setValue(result.DsSystem);
+                    
+                    DsTypeUpdate.setSelectedKey(result.TypeId);
+                    DsSecurityLevelUpdate.setSelectedKey(result.SecurityLevelId);
+                    DsOwnerUpdate.setValue(result.DsOwner);
+                    DsRelationshipUpdate.setValue(result.DsRelationship);
+                    EffectiveVilueUpdate.setValue(result.EffectiveVilue);
+                    DsIsnullUpdate.setSelectedKey(result.IsnullId);
+                    
+                    DsDefaultUpdate.setValue(result.DsDefault);
+                    DsTechnicalTypeUpdate.setSelectedKey(result.TechnicalTypeId);
+                    DsTechnicalFromatUpdate.setValue(result.DsTechnicalFromat);
+                    DsMappingTypeUpdate.setSelectedKey(result.MappingTypeId);
+                    DsMappingTableUpdate.setValue(result.DsMappingTable);
+                    
+                    DsTableCodeUpdate.setValue(result.DsTableCode);
+                    EffectiveStatusUpdate2.setSelectedKey(result.EffectiveStatusId);
+                    CreateDateUpdate2.setValue(result.CreateDate);
+                    
+                    EffectiveDateUpdate2.setValue(result.EffectiveDate);
+                    ExpiryDateUpdate2.setValue(result.ExpiryDate);
+                    Memo1Update2.setValue(result.Memo1);
+                    Memo2Update2.setValue(result.Memo2);
+                    Memo3Update2.setValue(result.Memo3);
 					dialog.close();
 				}
 			}),
@@ -150,6 +187,9 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiUpdate", {
 			}
 		});
 		dialog.open();
+	},
+	onQueryById:function(){
+
 	}
 
 /**

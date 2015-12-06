@@ -4,8 +4,6 @@ sap.ui.jsview("com.zhenergy.data.manager.view.BiaoZhunGuanLiResult", {
 	},
 
 	createContent : function(oController) {
-
-        
 	    var oTabStrip1 = new sap.ui.commons.TabStrip("TabStrip01");
         oTabStrip1.setHeight("405px");
 	    var oTable2 = new sap.ui.table.Table({

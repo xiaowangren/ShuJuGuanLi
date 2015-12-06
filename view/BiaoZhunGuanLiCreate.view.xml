@@ -70,18 +70,16 @@
                                             <ly:MatrixLayoutCell id="ziZhuTiYuCreate">
                                                 <c:ComboBox width="95%" selectedKey="{newBiaoZhun>/Detail/SubdomainId}" id="ziZhuTiYuCreateComboBox">
                                                     <c:items>
-                                                        <!--<core:ListItem text="请选择子主题域" key="999" id="999"></core:ListItem>-->
-                                                        <!--<core:ListItem text="物料基本信息" key="001" id="001"></core:ListItem>-->
-                                                        <!--<core:ListItem text="财务基本信息" key="002" id="002"></core:ListItem>-->
-                                                        <!--<core:ListItem text="人事基本信息" key="003" id="003"></core:ListItem>-->
-                                                        <!--<core:ListItem text="销售基本信息" key="004" id="004"></core:ListItem>-->
-                                                        <!--<core:ListItem text="客户基本信息" key="005" id="005"></core:ListItem>-->
-                                                        <!--<core:ListItem text="供应商基本信息" key="006" id="006"></core:ListItem>-->
-                                                        <!--<core:ListItem text="设备基本信息" key="007" id="007"></core:ListItem>-->
-                                                        <!--<core:ListItem text="设备分类基本信息" key="008" id="008"></core:ListItem>-->
-                                                        <!--<core:ListItem text="设备特性基本信息" key="009" id="009"></core:ListItem>-->
-                                                        <!--<core:ListItem text="功能位置基本信息" key="010" id="010"></core:ListItem>-->
-                                                        <!--<core:ListItem text="科目基本信息" key="011" id="011"></core:ListItem>-->
+                                                        <core:ListItem text="请选择子主题域" key="BB"></core:ListItem>
+                                                        <core:ListItem text="物料基本信息" key="B1"></core:ListItem>
+                                                        <core:ListItem text="财务基本信息" key="B2"></core:ListItem>
+                                                        <core:ListItem text="人事基本信息" key="B3"></core:ListItem>
+                                                        <core:ListItem text="销售基本信息" key="B4"></core:ListItem>
+                                                        <core:ListItem text="客户基本信息" key="B5"></core:ListItem>
+                                                        <core:ListItem text="供应商基本信息" key="B6"></core:ListItem>
+                                                        <core:ListItem text="设备基本信息" key="B7"></core:ListItem>
+                                                        <core:ListItem text="设备分类基本信息" key="B8"></core:ListItem>
+                                                        <core:ListItem text="设备特性基本信息" key="B9"></core:ListItem>
                                                     </c:items>
                                                 </c:ComboBox>
                                             </ly:MatrixLayoutCell>

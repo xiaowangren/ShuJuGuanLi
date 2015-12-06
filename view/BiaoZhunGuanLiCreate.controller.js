@@ -20,14 +20,7 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiCreate", {
 	},
     onSaveBiaoZhun : function(){
         var newBiaoZhun = this.getView().getModel("newBiaoZhun").getData().Detail;
-        // var mPayload = {
-        //     DsNameEn:newBiaoZhun.DsNameEn,
-        //     DsNameCn:newBiaoZhun.DsNameCn,
-        //     DomainId:newBiaoZhun.DsDomain,
-        //     SubdomainId:newBiaoZhun.DsSubdomain,
-            
-        // };
-        // var oModel = this.getView().getModel();
+        // console.log(newBiaoZhun);
         var oModel = sap.ui.getCore().getModel("oModel");
         //是否提交
             var dialog = new sap.m.Dialog({
@@ -97,8 +90,6 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiCreate", {
 				beginButton: new sap.m.Button({
 					text: '是',
 					press: function () {
-					   // console.log(oEvent);
-					   // this.initializeData();
                         DsNameCnCreate.setValue();
                         DsNameEnCreate.setValue();
                         DsDomainCreate.setSelectedKey("AA");
@@ -123,10 +114,11 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiCreate", {
                         Memo1Create1.setValue();
                         Memo2Create1.setValue();
                         Memo3Create1.setValue();
-                        combobox.removeAllItems();
-                        combobox.addItem(new sap.ui.core.ListItem({text:"",key:"BB"}));
                         combobox.setSelectedKey("BB");
-                        combobox.removeAllItems();
+                        // combobox.removeAllItems();
+                        // combobox.addItem(new sap.ui.core.ListItem({text:"",key:"BB"}));
+                        // combobox.setSelectedKey("BB");
+                        // combobox.removeAllItems();
 						dialog.close();
 					}
 				}),
@@ -143,10 +135,10 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiCreate", {
 			dialog.open();
 			
     },
-    onChangeZhuTiYu:function(oEvent){
-        var context = oEvent.oSource.getSelectedKey();
-        this.drawComboBoxItemBz(context);
-    },
+    // onChangeZhuTiYu:function(oEvent){
+    //     var context = oEvent.oSource.getSelectedKey();
+    //     this.drawComboBoxItemBz(context);
+    // },
     drawComboBoxItemBz: function(key){
         // var cell = this.getView().byId("ziZhuTiYuCreate");
         // var newBiaoZhun = this.getView().getModel("newBiaoZhun").getData().Detail;

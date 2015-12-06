@@ -15,7 +15,7 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiQuery", {
         var mParameters = {};
         mParameters['async'] = true;
         mParameters['success'] = jQuery.proxy(function(data) {
-             console.log(data.results);
+            //  console.log(data.results);
             jModel.setData({mataModel:data.results});
             table.setModel(jModel);
             // console.log(table);
@@ -24,8 +24,7 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiQuery", {
             sap.m.MessageToast.show("网络连接失败，请重试");
         }, this);
         var oModel1 = sap.ui.getCore().getModel("oModel");    
-        oModel1.read("/EE_STANDARDSet?$filter=TypeId eq '"+shuJuBiaoZhunLeiBieQuery+"' and DsCode eq '"+shuJuXiangBianHaoQuery+"' and DsNameEn eq '' and DsNameCn eq '"+shuJuXiangMingChengQuery+"' and DomainId eq '"+zhuTiYuQuery+"' and SecurityLevelId eq '"+shuJuAnQuanFenJiQuery+"' and EffectiveStatusId eq '"+shiFouYouXiaoQuery+"'",mParameters);   // ?$filter=(Status eq 'READY' and TaskDefinitionName eq '请假申请审批')	
-    //         var usrid = jQuery.sap.getUriParameters().get("usrid").toUpperCase();
+        oModel1.read("/EE_STANDARDSet?$filter=TypeId eq '"+shuJuBiaoZhunLeiBieQuery+"' and DsCode eq '"+shuJuXiangBianHaoQuery+"' and DsNameEn eq '' and DsNameCn eq '"+shuJuXiangMingChengQuery+"' and DomainId eq '"+zhuTiYuQuery+"' and SecurityLevelId eq '"+shuJuAnQuanFenJiQuery+"' and EffectiveStatusId eq '"+shiFouYouXiaoQuery+"'",mParameters);   
     // 		var oFilters = [];
     // 		var oFilter = new sap.ui.model.Filter("Pernr", sap.ui.model.FilterOperator.EQ, usrid);
     // 		oFilters.push(oFilter);
