@@ -3,11 +3,11 @@ sap.ui.controller("com.zhenergy.data.manager.view.ZhiLiangGuanLiCreate", {
         // var usrid = jQuery.sap.getUriParameters().get("usrid").toUpperCase();
         this.getView().getModel("newZhiLiang").setData({
             Detail: {
-                DqType: "999",
-                DqSystem:"999",
-                DqDimentation:"999",
-                EffectiveStatus:"999",
-                DqCheckDate:"999",
+                DqTypeId: "II",
+                DqSystemId:"JJ",
+                DqDimentationId:"KK",
+                EffectiveStatusId:"LL",
+                DqCheckFrequencyId:"MM",
                 DqCheckFrequency:0
             }
         });
@@ -23,7 +23,49 @@ sap.ui.controller("com.zhenergy.data.manager.view.ZhiLiangGuanLiCreate", {
     onSaveZhiLiang : function(){
         var newZhiLiang = this.getView().getModel("newZhiLiang").getData().Detail;
         console.log(newZhiLiang);
-        var oModel = this.getView().getModel();
+        var DqCheckFrequencyId="";
+        if(newZhiLiang.DqCheckFrequency==0){
+            DqCheckFrequencyId='M1';
+        }
+        if(newZhiLiang.DqCheckFrequency==1){
+            DqCheckFrequencyId='M2';
+        }
+        if(newZhiLiang.DqCheckFrequency==2){
+            DqCheckFrequencyId='M3';
+        }
+        if(newZhiLiang.DqCheckFrequency==3){
+            DqCheckFrequencyId='M4';
+        }
+        if(newZhiLiang.DqCheckFrequency==4){
+            DqCheckFrequencyId='M5';
+        }
+                if(newZhiLiang.DqCheckFrequency==5){
+            DqCheckFrequencyId='M6';
+        }
+
+        var payLoad = {
+            DqTypeId:newZhiLiang.DqTypeId,
+            DqSystemId:newZhiLiang.DqSystemId,
+            ItemTypeNameEn:newZhiLiang.ItemTypeNameEn,
+            ItemTypeNameCn:newZhiLiang.ItemTypeNameCn,
+            ItemNameEn:newZhiLiang.ItemNameEn,
+            ItemNameCn:newZhiLiang.ItemNameCn,
+            ItemDescribation:newZhiLiang.ItemDescribation,
+            DqDimentationId:newZhiLiang.DqDimentationId,
+            RullDescribation:newZhiLiang.RullDescribation,
+            DqOwner:newZhiLiang.DqOwner,
+            DqCheckDate:newZhiLiang.DqCheckDate,
+            EffectiveStatusId:newZhiLiang.EffectiveStatusId,
+            CreateDate:newZhiLiang.CreateDate,
+            EffectiveDate:newZhiLiang.EffectiveDate,
+            ExpiryDate:newZhiLiang.ExpiryDate,
+            Memo1:newZhiLiang.Memo1,
+            Memo2:newZhiLiang.Memo2,
+            Memo3:newZhiLiang.Memo3,
+            DqCheckFrequencyId:DqCheckFrequencyId
+        };
+        console.log(payLoad);
+        var oModel = this.getView().getModel("oModel");
         //是否提交
             var dialog = new sap.m.Dialog({
 				title: '确认框',
@@ -32,11 +74,11 @@ sap.ui.controller("com.zhenergy.data.manager.view.ZhiLiangGuanLiCreate", {
 				beginButton: new sap.m.Button({
 					text: '确认',
 					press: function () {
-                        oModel.create("/",newZhiLiang, {
+                        oModel.create("/EE_QUALITYSet",payLoad, {
                             success : jQuery.proxy(function() {
-                                // sap.ui.getCore().byId("idSplitApp").app.backToPage("idPersonInfo");
-                                // this.initializeData();
-                                // jQuery.sap.require("sap.m.MessageToast");
+                                sap.ui.controller("com.zhenergy.data.manager.view.MyMaster").onZhiLiangFunction();
+                                sap.ui.getCore().byId("idSplitApp").app.backToPage("idZlglQuery");
+                                jQuery.sap.require("sap.m.MessageToast");
                                 sap.m.MessageToast.show("数据质量新增成功");
                             }, this),
                             error : jQuery.proxy(function() {

@@ -19,6 +19,8 @@ sap.ui.controller("com.zhenergy.data.manager.view.MyMaster", {
  	    page.setBindingContext(context);
     },
     onShuJuZhiLiangGuanLiQuery : function(oEvent){
+        sap.ui.controller("com.zhenergy.data.manager.view.MyMaster").onZhiLiangFunction();
+
         var context = oEvent.getSource().getBindingContext();
 		sap.ui.getCore().byId("idSplitApp").app.to("idZlglQuery", context);
 		var page = sap.ui.getCore().byId("idSplitApp").app.getPage("idZlglQuery");
@@ -43,6 +45,15 @@ sap.ui.controller("com.zhenergy.data.manager.view.MyMaster", {
         var jModel = new sap.ui.model.json.JSONModel();
         var table = sap.ui.getCore().byId("biaoZhunQueryResult");
         jModel.setData({mataModel:data.results});
+        table.setModel(jModel);
+    }
+    ,
+    onZhiLiangFunction:function(){
+        sap.ui.controller("com.zhenergy.data.manager.view.ZhiLiangGuanLiQuery").onChongZhiZhiLiang();
+        var data = "[]";
+        var jModel = new sap.ui.model.json.JSONModel();
+        var table = sap.ui.getCore().byId("zhiLiangQueryResult");
+        jModel.setData({mataModelZhiLiang:data.results});
         table.setModel(jModel);
     }
 

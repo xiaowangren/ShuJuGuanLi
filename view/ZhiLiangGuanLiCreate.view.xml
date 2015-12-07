@@ -33,13 +33,13 @@
                                                 <c:Label text="数据项类型" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <c:ComboBox width="95%" selectedKey="{newZhiLiang>/Detail/DqType}">
+                                                <c:ComboBox width="95%" selectedKey="{newZhiLiang>/Detail/DqTypeId}">
                                                     <c:items>
-                                                        <core:ListItem text="请选择数据项类型" key="999"></core:ListItem>
-                                                        <core:ListItem text="表" key="001"></core:ListItem>
-                                                        <core:ListItem text="字段" key="002"></core:ListItem>
-                                                        <core:ListItem text="文件" key="003"></core:ListItem>
-                                                        <core:ListItem text="Web Service" key="004"></core:ListItem>
+                                                        <core:ListItem text="请选择数据项类型" key="II"></core:ListItem>
+                                                        <core:ListItem text="表" key="I1"></core:ListItem>
+                                                        <core:ListItem text="字段" key="I2"></core:ListItem>
+                                                        <core:ListItem text="文件" key="I3"></core:ListItem>
+                                                        <core:ListItem text="Web Service" key="I4"></core:ListItem>
                                                     </c:items>
                                                 </c:ComboBox>   
                                             </ly:MatrixLayoutCell>
@@ -47,10 +47,10 @@
                                                 <c:Label text="系统" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <c:ComboBox width="95%" selectedKey="{newZhiLiang>/Detail/DqSystem}">
+                                                <c:ComboBox width="95%" selectedKey="{newZhiLiang>/Detail/DqSystemId}">
                                                     <c:items>
-                                                        <core:ListItem text="请选择系统" key="999"></core:ListItem>
-                                                        <core:ListItem text="MDM" key="001"></core:ListItem>
+                                                        <core:ListItem text="请选择系统" key="JJ"></core:ListItem>
+                                                        <core:ListItem text="MDM" key="J1"></core:ListItem>
                                                     </c:items>
                                                 </c:ComboBox>
                                             </ly:MatrixLayoutCell>
@@ -98,13 +98,13 @@
                                                 <c:Label text="数据质量检查维度" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <c:ComboBox width="95%" selectedKey="{newZhiLiang>/Detail/DqDimentation}">
+                                                <c:ComboBox width="95%" selectedKey="{newZhiLiang>/Detail/DqDimentationId}">
                                                     <c:items>
-                                                        <core:ListItem text="请选择质量维度" key="999"></core:ListItem>
-                                                        <core:ListItem text="完整性" key="0"></core:ListItem>
-                                                        <core:ListItem text="一致性" key="1"></core:ListItem>
-                                                        <core:ListItem text="准确性" key="2"></core:ListItem>
-                                                        <core:ListItem text="唯一性" key="3"></core:ListItem>
+                                                        <core:ListItem text="请选择质量维度" key="KK"></core:ListItem>
+                                                        <core:ListItem text="完整性" key="K1"></core:ListItem>
+                                                        <core:ListItem text="一致性" key="K2"></core:ListItem>
+                                                        <core:ListItem text="准确性" key="K3"></core:ListItem>
+                                                        <core:ListItem text="及时性" key="K4"></core:ListItem>
                                                     </c:items>
                                                 </c:ComboBox>
                                             </ly:MatrixLayoutCell>
@@ -147,14 +147,15 @@
                                                 <c:Label text="检查频度的日期" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <c:ComboBox width="95%" selectedKey="{newZhiLiang>/Detail/DqCheckDate}">
-                                                    <c:items>
-                                                        <core:ListItem text="请选择日期" key="999"></core:ListItem>
-                                                        <core:ListItem text="每月12号" key="001"></core:ListItem>
-                                                        <core:ListItem text="每周一" key="002"></core:ListItem>
-                                                        <core:ListItem text="每月月底" key="003"></core:ListItem>
-                                                    </c:items>
-                                                </c:ComboBox>
+                                                <DatePicker value="{newZhiLiang>/Detail/DqCheckDate}" valueFormat="yyyyMMdd" width="95%"></DatePicker>
+                                                <!--<c:ComboBox width="95%" selectedKey="{newZhiLiang>/Detail/DqCheckDate}">-->
+                                                <!--    <c:items>-->
+                                                <!--        <core:ListItem text="请选择日期" key="999"></core:ListItem>-->
+                                                <!--        <core:ListItem text="每月12号" key="001"></core:ListItem>-->
+                                                <!--        <core:ListItem text="每周一" key="002"></core:ListItem>-->
+                                                <!--        <core:ListItem text="每月月底" key="003"></core:ListItem>-->
+                                                <!--    </c:items>-->
+                                                <!--</c:ComboBox>-->
                                             </ly:MatrixLayoutCell>
                                         </ly:MatrixLayoutRow>
                                         <ly:MatrixLayoutRow>
@@ -162,11 +163,11 @@
                                                 <c:Label text="是否有效" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <c:ComboBox width="95%" selectedKey="{newZhiLiang>/Detail/EffectiveStatus}">
+                                                <c:ComboBox width="95%" selectedKey="{newZhiLiang>/Detail/EffectiveStatusId}">
                                                     <c:items>
-                                                        <core:ListItem text="请选择是否有效" key="999"></core:ListItem>
-                                                        <core:ListItem text="N" key="false"></core:ListItem>
-                                                        <core:ListItem text="Y" key="true"></core:ListItem>
+                                                        <core:ListItem text="请选择是否有效" key="LL"></core:ListItem>
+                                                        <core:ListItem text="N" key="L2"></core:ListItem>
+                                                        <core:ListItem text="Y" key="L1"></core:ListItem>
                                                     </c:items>
                                                 </c:ComboBox>
                                             </ly:MatrixLayoutCell>
@@ -176,13 +177,13 @@
                                                 <c:Label text="创建日期" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <DatePicker value="" valueFormat="yyyyMMdd" width="95%"></DatePicker>
+                                                <DatePicker value="{newZhiLiang>/Detail/CreateDate}" valueFormat="yyyyMMdd" width="95%"></DatePicker>
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
                                                 <c:Label text="生效日期" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <DatePicker value="" valueFormat="yyyyMMdd" width="95%"></DatePicker>
+                                                <DatePicker value="{newZhiLiang>/Detail/EffectiveDate}" valueFormat="yyyyMMdd" width="95%"></DatePicker>
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
                                             </ly:MatrixLayoutCell>
@@ -190,7 +191,7 @@
                                                 <c:Label text="失效日期" />
                                             </ly:MatrixLayoutCell>
                                             <ly:MatrixLayoutCell>
-                                                <DatePicker value="" valueFormat="yyyyMMdd" width="95%"></DatePicker>
+                                                <DatePicker value="{newZhiLiang>/Detail/ExpiryDate}" valueFormat="yyyyMMdd" width="95%"></DatePicker>
                                             </ly:MatrixLayoutCell>
                                         </ly:MatrixLayoutRow>
                                         <ly:MatrixLayoutRow>

@@ -28,12 +28,12 @@ sap.ui.controller("com.zhenergy.data.manager.view.ZhiLiangGuanLiQuery", {
         oModel1.read("/EE_QUALITYSet?$filter=DqTypeId eq '"+shuJuXiangLeiXingQuery+"' and DqSystemId eq '"+xiTongQuery+"' and ItemTypeNameCn eq '"+shuJuXiangZhongWenMingCheng+"' and DqDimentationId eq '"+shuJuZhiLiangJianChaWeiDu+"' and DqCheckFrequencyId eq '"+jianChaWeiDu+"' and EffectiveStatusId eq '"+shiFouYouXiaoZhiLiang+"'",mParameters);   
     },
     onChongZhiZhiLiang:function(){
-        this.getView().byId("shuJuXiangLeiXingQuery").setSelectedKey("II");
-        this.getView().byId("xiTongQuery").setSelectedKey("JJ");
-        this.getView().byId("shuJuXiangZhongWenMingCheng").setValue();
-        this.getView().byId("shuJuZhiLiangJianChaWeiDu").setSelectedKey("KK");
-        this.getView().byId("jianChaWeiDu").setSelectedKey("MM");
-        this.getView().byId("shiFouYouXiaoZhiLiang").setSelectedKey("LL");
+        sap.ui.getCore().byId("idZlglQuery").byId("shuJuXiangLeiXingQuery").setSelectedKey("II");
+        sap.ui.getCore().byId("idZlglQuery").byId("xiTongQuery").setSelectedKey("JJ");
+        sap.ui.getCore().byId("idZlglQuery").byId("shuJuXiangZhongWenMingCheng").setValue();
+        sap.ui.getCore().byId("idZlglQuery").byId("shuJuZhiLiangJianChaWeiDu").setSelectedKey("KK");
+        sap.ui.getCore().byId("idZlglQuery").byId("jianChaWeiDu").setSelectedKey("MM");
+        sap.ui.getCore().byId("idZlglQuery").byId("shiFouYouXiaoZhiLiang").setSelectedKey("LL");
     }
 /**
 * Called when a controller is instantiated and its View controls (if available) are already created.
