@@ -1,7 +1,7 @@
 sap.ui.controller("com.zhenergy.data.manager.view.ZhiLiangGuanLiCreate", {
     initializeData : function() {
         // var usrid = jQuery.sap.getUriParameters().get("usrid").toUpperCase();
-        this.getView().getModel("newZhiLiang").setData({
+        sap.ui.getCore().byId("idZlglCreate").getModel("newZhiLiang").setData({
             Detail: {
                 DqTypeId: "II",
                 DqSystemId:"JJ",
@@ -22,7 +22,7 @@ sap.ui.controller("com.zhenergy.data.manager.view.ZhiLiangGuanLiCreate", {
 //     },
     onSaveZhiLiang : function(){
         var newZhiLiang = this.getView().getModel("newZhiLiang").getData().Detail;
-        console.log(newZhiLiang);
+        // console.log(newZhiLiang);
         var DqCheckFrequencyId="";
         if(newZhiLiang.DqCheckFrequency==0){
             DqCheckFrequencyId='M1';
@@ -101,7 +101,85 @@ sap.ui.controller("com.zhenergy.data.manager.view.ZhiLiangGuanLiCreate", {
 			dialog.open();
     },
     onChongZhiZhiLiang: function(){
-        this.initializeData();
+        //this.initializeData();
+        // var combobox = this.getView().byId("ziZhuTiYuCreateComboBox");
+        //     var DsNameCnCreate = this.getView().byId("DsNameCnCreate");
+        //     var DsNameEnCreate = this.getView().byId("DsNameEnCreate");
+        //     var DsDomainCreate = this.getView().byId("DsDomainCreate");
+        //     var DsSystemCreate = this.getView().byId("DsSystemCreate");
+        //     var DsBusinessCreate = this.getView().byId("DsBusinessCreate");
+        //     var DsTypeCreate = this.getView().byId("DsTypeCreate");
+        //     var DsSecurityLevelCreate = this.getView().byId("DsSecurityLevelCreate");
+        //     var DsOwnerCreate = this.getView().byId("DsOwnerCreate");
+        //     var DsRelationshipCreate = this.getView().byId("DsRelationshipCreate");
+        //     var EffectiveVilueCreate = this.getView().byId("EffectiveVilueCreate");
+        //     var DsIsnullCreate = this.getView().byId("DsIsnullCreate");
+        //     var DsDefaultCreate = this.getView().byId("DsDefaultCreate");
+        //     var DsTechnicalTypeCreate = this.getView().byId("DsTechnicalTypeCreate");
+        //     var DsTechnicalFromatCreate = this.getView().byId("DsTechnicalFromatCreate");
+        //     var DsMappingTypeCreate = this.getView().byId("DsMappingTypeCreate");
+        //     var DsMappingTableCreate = this.getView().byId("DsMappingTableCreate");
+        //     var DsTableCodeCreate = this.getView().byId("DsTableCodeCreate");
+        //     var EffectiveStatusCreate = this.getView().byId("EffectiveStatusCreate");
+        //     var CreateDateCreate1 = this.getView().byId("CreateDateCreate1");
+        //     var EffectiveDateCreate1 = this.getView().byId("EffectiveDateCreate1");
+        //     var ExpiryDateCreate1 = this.getView().byId("ExpiryDateCreate1");
+        //     var Memo1Create1 = this.getView().byId("Memo1Create1");
+        //     var Memo2Create1 = this.getView().byId("Memo2Create1");
+        //     var Memo3Create1 = this.getView().byId("Memo3Create1");
+
+            var dialog = new sap.m.Dialog({
+				title: '确认框',
+				type: 'Message',
+				content: new sap.m.Text({ text: '是否重置?' }),
+				beginButton: new sap.m.Button({
+					text: '是',
+					press: function () {
+					   sap.ui.controller("com.zhenergy.data.manager.view.ZhiLiangGuanLiCreate").initializeData();
+
+                        // DsNameCnCreate.setValue();
+                        // DsNameEnCreate.setValue();
+                        // DsDomainCreate.setSelectedKey("AA");
+                        // DsSystemCreate.setValue();
+                        // DsBusinessCreate.setValue();
+                        // DsTypeCreate.setSelectedKey("CC");
+                        // DsSecurityLevelCreate.setSelectedKey("DD");
+                        // DsOwnerCreate.setValue();
+                        // DsRelationshipCreate.setValue();
+                        // EffectiveVilueCreate.setValue();
+                        // DsIsnullCreate.setSelectedKey("EE");
+                        // DsDefaultCreate.setValue();
+                        // DsTechnicalTypeCreate.setSelectedKey("FF");
+                        // DsTechnicalFromatCreate.setValue();
+                        // DsMappingTypeCreate.setSelectedKey("GG");
+                        // DsMappingTableCreate.setValue();
+                        // DsTableCodeCreate.setValue();
+                        // EffectiveStatusCreate.setSelectedKey("HH");
+                        // CreateDateCreate1.setValue();
+                        // EffectiveDateCreate1.setValue();
+                        // ExpiryDateCreate1.setValue();
+                        // Memo1Create1.setValue();
+                        // Memo2Create1.setValue();
+                        // Memo3Create1.setValue();
+                        // combobox.setSelectedKey("BB");
+                        // // combobox.removeAllItems();
+                        // // combobox.addItem(new sap.ui.core.ListItem({text:"",key:"BB"}));
+                        // // combobox.setSelectedKey("BB");
+                        // // combobox.removeAllItems();
+						dialog.close();
+					}
+				}),
+				endButton: new sap.m.Button({
+					text: '否',
+					press: function () {
+						dialog.close();
+					}
+				}),
+				afterClose: function() {
+					dialog.destroy();
+				}
+			});
+			dialog.open();
     }
 /**
 * Called when a controller is instantiated and its View controls (if available) are already created.

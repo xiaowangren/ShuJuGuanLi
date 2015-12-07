@@ -15,7 +15,6 @@ sap.ui.controller("com.zhenergy.data.manager.view.ZhiLiangGuanLiQuery", {
         var mParameters = {};
         mParameters['async'] = true;
         mParameters['success'] = jQuery.proxy(function(data) {
-            console.log(data.results);
             jModel.setData({mataModelZhiLiang:data.results});
             table.setModel(jModel);
             // console.log(table);

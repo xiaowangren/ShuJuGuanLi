@@ -21,8 +21,39 @@ sap.ui.jsview("com.zhenergy.data.manager.view.ZhiLiangGuanLiResult", {
 	        visibleRowCount: 10,
         	selectionMode: sap.ui.table.SelectionMode.Single,
         	navigationMode: sap.ui.table.NavigationMode.Paginator,
-        	fixedColumnCount: 0
-        	
+        	fixedColumnCount: 0,
+        	rowSelectionChange:function(oEvent){
+        	    var rowContext = oEvent.getParameters().rowContext;
+         	    var table = sap.ui.getCore().byId("zhiLiangQueryResult");
+         	    var model = table.getModel(); 
+         	    var data  = model.getProperty(rowContext.sPath);
+         	    sap.ui.getCore().byId("idSplitApp").app.to("idZlglUpdate", rowContext);
+        		var page = sap.ui.getCore().byId("idSplitApp").app.getPage("idZlglUpdate");
+        		var pinDu=0;
+        		if(data.DqCheckFrequencyId=='M1'){
+        		    pinDu=0;
+        		}
+        		if(data.DqCheckFrequencyId=='M2'){
+        		    pinDu=1;
+        		}
+        		if(data.DqCheckFrequencyId=='M3'){
+        		    pinDu=2;
+        		}
+        		if(data.DqCheckFrequencyId=='M4'){
+        		    pinDu=3;
+        		}
+        		if(data.DqCheckFrequencyId=='M5'){
+        		    pinDu=4;
+        		}
+        		if(data.DqCheckFrequencyId=='M6'){
+        		    pinDu=5;
+        		}
+        // 		data["pinDu"]=pinDu;
+                data.DqCheckFrequencyId=pinDu;
+        		var oModel = new sap.ui.model.json.JSONModel(data);
+			    page.setModel(oModel,"newZhiLiangUpdate");
+         	    
+        	}
         }); 
         oTable2.addColumn(new sap.ui.table.Column({
         	label: new sap.ui.commons.Label({text: "规则检查编号"}),
@@ -104,7 +135,7 @@ sap.ui.jsview("com.zhenergy.data.manager.view.ZhiLiangGuanLiResult", {
         }));
 		oTable2.addColumn(new sap.ui.table.Column({
         	label: new sap.ui.commons.Label({text: "是否有效"}),
-        	template: new sap.ui.commons.TextView().bindProperty("text", "EffectiveStatusId"),
+        	template: new sap.ui.commons.TextView().bindProperty("text", "EffectiveStatus"),
         	width: "120px",
         	hAlign: "Center"
         }));
@@ -139,14 +170,7 @@ sap.ui.jsview("com.zhenergy.data.manager.view.ZhiLiangGuanLiResult", {
         }); 
         oTabStrip1.addTab(tab);
 		return oTabStrip1;
-		
-		
-		
-		
-		
-		
-		
-		
+	
 	}
 
 });
