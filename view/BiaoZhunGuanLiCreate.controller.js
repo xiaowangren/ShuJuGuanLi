@@ -1,6 +1,5 @@
 sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiCreate", {
     initializeData : function() {
-        // var usrid = jQuery.sap.getUriParameters().get("usrid").toUpperCase();
         this.getView().getModel("newBiaoZhun").setData({
             Detail: {
                 DomainId: "AA",

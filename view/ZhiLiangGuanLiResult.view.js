@@ -13,33 +13,6 @@ sap.ui.jsview("com.zhenergy.data.manager.view.ZhiLiangGuanLiResult", {
 	* @memberOf com.zhenergy.data.manager.view.ZhiLiangGuanLiResult
 	*/ 
 	createContent : function(oController) {
-	    
-	    	    var aData = [
-{num:"1",yingwen:"EQUI_CODE",zhongwen:"设备编码",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-{num:"2",yingwen:"EQUI_DESC",zhongwen:"设备描述",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-{num:"3",yingwen:"EQUI_STATUS",zhongwen:"设备状态",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-{num:"4",yingwen:"MADE_BY",zhongwen:"制造商",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-{num:"5",yingwen:"PIC_NO",zhongwen:"图号",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-{num:"6",yingwen:"INSTALL_PLA",zhongwen:"安装地点",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-{num:"7",yingwen:"WEIGHT",zhongwen:"重量",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-{num:"8",yingwen:"EQUI_CLAS",zhongwen:"设备分类",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-{num:"9",yingwen:"UNIT",zhongwen:"重量单位",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-{num:"10",yingwen:"SERIAL_NO",zhongwen:"序列号",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-{num:"11",yingwen:"SPECIFICATION",zhongwen:"规格",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-{num:"1",yingwen:"EQUI_CODE",zhongwen:"设备编码",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-{num:"2",yingwen:"EQUI_DESC",zhongwen:"设备描述",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-{num:"3",yingwen:"EQUI_STATUS",zhongwen:"设备状态",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-{num:"4",yingwen:"MADE_BY",zhongwen:"制造商",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-{num:"5",yingwen:"PIC_NO",zhongwen:"图号",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-{num:"6",yingwen:"INSTALL_PLA",zhongwen:"安装地点",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-{num:"7",yingwen:"WEIGHT",zhongwen:"重量",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-{num:"8",yingwen:"EQUI_CLAS",zhongwen:"设备分类",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-{num:"9",yingwen:"UNIT",zhongwen:"重量单位",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-{num:"10",yingwen:"SERIAL_NO",zhongwen:"序列号",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-{num:"11",yingwen:"SPECIFICATION",zhongwen:"规格",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"},
-{num:"12",yingwen:"PROFESS",zhongwen:"专业",zhutiyu:"设备",zizhutiyu:"设备基本信息",xitong:"MDM",yewudignyi:"该设备的设备基本信息",leibie:"主数据标准"}
-        ];
-        
 		//1.TAB
 		var oTabStrip1 = new sap.ui.commons.TabStrip("TabStrip02");
 		oTabStrip1.setHeight("405px");
@@ -53,111 +26,111 @@ sap.ui.jsview("com.zhenergy.data.manager.view.ZhiLiangGuanLiResult", {
         }); 
         oTable2.addColumn(new sap.ui.table.Column({
         	label: new sap.ui.commons.Label({text: "规则检查编号"}),
-        	template: new sap.ui.commons.TextView().bindProperty("text", "num"),
+        	template: new sap.ui.commons.TextView().bindProperty("text", "RullNo"),
         	width: "120px",
         	hAlign: "Center"
         }));
 		oTable2.addColumn(new sap.ui.table.Column({
         	label: new sap.ui.commons.Label({text: "数据项类型"}),
-        	template: new sap.ui.commons.TextView().bindProperty("text", "yingwen"),
+        	template: new sap.ui.commons.TextView().bindProperty("text", "DqType"),
         	width: "120px",
         	hAlign: "Center"
         }));
 		oTable2.addColumn(new sap.ui.table.Column({
         	label: new sap.ui.commons.Label({text: "系统"}),
-        	template: new sap.ui.commons.TextView().bindProperty("text", "zhongwen"),
+        	template: new sap.ui.commons.TextView().bindProperty("text", "DqSystem"),
         	width: "80px",
         	hAlign: "Center"
         }));
         oTable2.addColumn(new sap.ui.table.Column({
         	label: new sap.ui.commons.Label({text: "数据项类型英文名称"}),
-        	template: new sap.ui.commons.TextView().bindProperty("text", "zhutiyu"),
+        	template: new sap.ui.commons.TextView().bindProperty("text", "ItemTypeNameEn"),
         	width: "150px",
         	hAlign: "Center"
         }));
 		oTable2.addColumn(new sap.ui.table.Column({
         	label: new sap.ui.commons.Label({text: "数据项类型中文名称"}),
-        	template: new sap.ui.commons.TextView().bindProperty("text", "zizhutiyu"),
+        	template: new sap.ui.commons.TextView().bindProperty("text", "ItemTypeNameCn"),
         	width: "150px",
         	hAlign: "Center"
         }));
         oTable2.addColumn(new sap.ui.table.Column({
         	label: new sap.ui.commons.Label({text: "数据项英文名称"}),
-        	template: new sap.ui.commons.TextView().bindProperty("text", "xitong"),
+        	template: new sap.ui.commons.TextView().bindProperty("text", "ItemNameEn"),
         	width: "120px",
         	hAlign: "Center"
         }));
         oTable2.addColumn(new sap.ui.table.Column({
         	label: new sap.ui.commons.Label({text: "数据项中文名称"}),
-        	template: new sap.ui.commons.TextView().bindProperty("text", "xitong"),
+        	template: new sap.ui.commons.TextView().bindProperty("text", "ItemNameCn"),
         	width: "150px",
         	hAlign: "Center"
         }));
 		oTable2.addColumn(new sap.ui.table.Column({
         	label: new sap.ui.commons.Label({text: "数据项描述"}),
-        	template: new sap.ui.commons.TextView().bindProperty("text", "xitong"),
+        	template: new sap.ui.commons.TextView().bindProperty("text", "ItemDescribation"),
         	width: "120px",
         	hAlign: "Center"
         }));
         oTable2.addColumn(new sap.ui.table.Column({
         	label: new sap.ui.commons.Label({text: "数据质量检查维度"}),
-        	template: new sap.ui.commons.TextView().bindProperty("text", "xitong"),
+        	template: new sap.ui.commons.TextView().bindProperty("text", "DqDimentation"),
         	width: "150px",
         	hAlign: "Center"
         }));
         oTable2.addColumn(new sap.ui.table.Column({
         	label: new sap.ui.commons.Label({text: "规则描述"}),
-        	template: new sap.ui.commons.TextView().bindProperty("text", "xitong"),
+        	template: new sap.ui.commons.TextView().bindProperty("text", "RullDescribation"),
         	width: "150px",
         	hAlign: "Center"
         }));
 		oTable2.addColumn(new sap.ui.table.Column({
         	label: new sap.ui.commons.Label({text: "数据质量责任人"}),
-        	template: new sap.ui.commons.TextView().bindProperty("text", "xitong"),
+        	template: new sap.ui.commons.TextView().bindProperty("text", "DqOwner"),
         	width: "120px",
         	hAlign: "Center"
         }));
         oTable2.addColumn(new sap.ui.table.Column({
         	label: new sap.ui.commons.Label({text: "检查频度"}),
-        	template: new sap.ui.commons.TextView().bindProperty("text", "xitong"),
+        	template: new sap.ui.commons.TextView().bindProperty("text", "DqCheckFrequency"),
         	width: "120px",
         	hAlign: "Center"
         }));
         oTable2.addColumn(new sap.ui.table.Column({
         	label: new sap.ui.commons.Label({text: "检查频度的日期"}),
-        	template: new sap.ui.commons.TextView().bindProperty("text", "xitong"),
+        	template: new sap.ui.commons.TextView().bindProperty("text", "DqCheckDate"),
         	width: "150px",
         	hAlign: "Center"
         }));
 		oTable2.addColumn(new sap.ui.table.Column({
         	label: new sap.ui.commons.Label({text: "是否有效"}),
-        	template: new sap.ui.commons.TextView().bindProperty("text", "xitong"),
+        	template: new sap.ui.commons.TextView().bindProperty("text", "EffectiveStatusId"),
         	width: "120px",
         	hAlign: "Center"
         }));
         oTable2.addColumn(new sap.ui.table.Column({
         	label: new sap.ui.commons.Label({text: "创建日期"}),
-        	template: new sap.ui.commons.TextView().bindProperty("text", "xitong"),
+        	template: new sap.ui.commons.TextView().bindProperty("text", "CreateDate"),
         	width: "120px",
         	hAlign: "Center"
         }));
         oTable2.addColumn(new sap.ui.table.Column({
         	label: new sap.ui.commons.Label({text: "生效日期"}),
-        	template: new sap.ui.commons.TextView().bindProperty("text", "xitong"),
+        	template: new sap.ui.commons.TextView().bindProperty("text", "EffectiveDate"),
         	width: "150px",
         	hAlign: "Center"
         }));
 		oTable2.addColumn(new sap.ui.table.Column({
         	label: new sap.ui.commons.Label({text: "失效日期"}),
-        	template: new sap.ui.commons.TextView().bindProperty("text", "xitong"),
+        	template: new sap.ui.commons.TextView().bindProperty("text", "ExpiryDate"),
         	width: "150px",
         	hAlign: "Center"
         }));
 		
-		var oModel = new sap.ui.model.json.JSONModel();
-	    oModel.setData({modelData: aData});
-        oTable2.setModel(oModel);
-        oTable2.bindRows("/modelData");
+// 		var oModel = new sap.ui.model.json.JSONModel();
+// 	    oModel.setData({modelData: aData});
+//         oTable2.setModel(oModel);
+        oTable2.bindRows("/mataModelZhiLiang");
         var tab = new sap.ui.commons.Tab({
             verticalScrolling:sap.ui.core.Scrolling.Hidden,
             horizontalScrolling:sap.ui.core.Scrolling.Hidden,

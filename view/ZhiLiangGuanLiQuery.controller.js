@@ -7,16 +7,33 @@ sap.ui.controller("com.zhenergy.data.manager.view.ZhiLiangGuanLiQuery", {
         var shuJuZhiLiangJianChaWeiDu = this.getView().byId("shuJuZhiLiangJianChaWeiDu").getSelectedKey();
         var jianChaWeiDu = this.getView().byId("jianChaWeiDu").getSelectedKey();
         var shiFouYouXiaoZhiLiang = this.getView().byId("shiFouYouXiaoZhiLiang").getSelectedKey();  
-        console.log(shuJuXiangLeiXingQuery+"---"+xiTongQuery+"---"+shuJuXiangZhongWenMingCheng);
-        console.log(shuJuZhiLiangJianChaWeiDu+"---"+jianChaWeiDu+"---"+shiFouYouXiaoZhiLiang);
+        // console.log(shuJuXiangLeiXingQuery+"---"+xiTongQuery+"---"+shuJuXiangZhongWenMingCheng);
+        // console.log(shuJuZhiLiangJianChaWeiDu+"---"+jianChaWeiDu+"---"+shiFouYouXiaoZhiLiang);
+         //调用abap
+        var jModel = new sap.ui.model.json.JSONModel();
+        var table = sap.ui.getCore().byId("zhiLiangQueryResult");
+        var mParameters = {};
+        mParameters['async'] = true;
+        mParameters['success'] = jQuery.proxy(function(data) {
+            console.log(data.results);
+            jModel.setData({mataModelZhiLiang:data.results});
+            table.setModel(jModel);
+            // console.log(table);
+        }, this);
+        mParameters['error'] = jQuery.proxy(function(data) {
+            sap.m.MessageToast.show("网络连接失败，请重试");
+        }, this);
+        var oModel1 = sap.ui.getCore().getModel("oModel");  
+        // oModel1.read("/EE_QUALITYSet?$filter=DqTypeId eq 'II' and DqSystemId eq 'JJ' and ItemTypeNameCn eq '主表' and DqDimentationId eq 'KK' and DqCheckFrequencyId eq 'MM' and EffectiveStatusId eq 'LL'",mParameters);
+        oModel1.read("/EE_QUALITYSet?$filter=DqTypeId eq '"+shuJuXiangLeiXingQuery+"' and DqSystemId eq '"+xiTongQuery+"' and ItemTypeNameCn eq '"+shuJuXiangZhongWenMingCheng+"' and DqDimentationId eq '"+shuJuZhiLiangJianChaWeiDu+"' and DqCheckFrequencyId eq '"+jianChaWeiDu+"' and EffectiveStatusId eq '"+shiFouYouXiaoZhiLiang+"'",mParameters);   
     },
     onChongZhiZhiLiang:function(){
-        this.getView().byId("shuJuXiangLeiXingQuery").setSelectedKey("999");
-        this.getView().byId("xiTongQuery").setSelectedKey("999");
+        this.getView().byId("shuJuXiangLeiXingQuery").setSelectedKey("II");
+        this.getView().byId("xiTongQuery").setSelectedKey("JJ");
         this.getView().byId("shuJuXiangZhongWenMingCheng").setValue();
-        this.getView().byId("shuJuZhiLiangJianChaWeiDu").setSelectedKey("999");
-        this.getView().byId("jianChaWeiDu").setSelectedKey("999");
-        this.getView().byId("shiFouYouXiaoZhiLiang").setSelectedKey("999");
+        this.getView().byId("shuJuZhiLiangJianChaWeiDu").setSelectedKey("KK");
+        this.getView().byId("jianChaWeiDu").setSelectedKey("MM");
+        this.getView().byId("shiFouYouXiaoZhiLiang").setSelectedKey("LL");
     }
 /**
 * Called when a controller is instantiated and its View controls (if available) are already created.

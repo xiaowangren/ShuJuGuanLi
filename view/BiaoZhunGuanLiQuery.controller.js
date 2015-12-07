@@ -15,7 +15,7 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiQuery", {
         var mParameters = {};
         mParameters['async'] = true;
         mParameters['success'] = jQuery.proxy(function(data) {
-            //  console.log(data.results);
+            //console.log(data.results);
             jModel.setData({mataModel:data.results});
             table.setModel(jModel);
             // console.log(table);
