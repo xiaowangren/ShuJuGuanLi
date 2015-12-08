@@ -6,9 +6,9 @@
 	xmlns:html="http://www.w3.org/1999/xhtml">
 	<Panel height="48px" width="101.3%">
         <content id="headContent">
-            <c:TextView text="操作员：张建伟 | 机构：信息部  登陆时间：{head>/yearsHead}  {head>/xingQiHead} {head>/hoursHead}" ></c:TextView>
-            <c:TextView text="当前角色:" class="head_margin_3" ></c:TextView>
-            <c:TextView text="业务负责人"></c:TextView>
+            <c:TextView text="登陆时间：{head>/yearsHead}  {head>/xingQiHead} {head>/hoursHead}" ></c:TextView>
+            <!--<c:TextView text="当前角色:" class="head_margin_3" ></c:TextView>-->
+            <!--<c:TextView text="业务负责人"></c:TextView>-->
         </content>
     </Panel>
 </core:View>
