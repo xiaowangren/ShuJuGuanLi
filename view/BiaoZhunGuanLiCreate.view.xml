@@ -183,6 +183,7 @@
                                                         <core:ListItem text="Char" key="F2"></core:ListItem>
                                                         <core:ListItem text="Int" key="F3"></core:ListItem>
                                                         <core:ListItem text="Text" key="F4"></core:ListItem>
+                                                        <core:ListItem text="Lookup[Flat]" key="F5"></core:ListItem>
                                                     </c:items>
                                                 </c:ComboBox>
                                             </ly:MatrixLayoutCell>

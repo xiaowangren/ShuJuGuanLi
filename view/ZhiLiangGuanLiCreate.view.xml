@@ -104,8 +104,8 @@
                                                         <core:ListItem text="完整性" key="K1"></core:ListItem>
                                                         <core:ListItem text="一致性" key="K2"></core:ListItem>
                                                         <core:ListItem text="准确性" key="K3"></core:ListItem>
-                                                        <core:ListItem text="及时性" key="K4"></core:ListItem>
-                                                    </c:items>
+                                                        <core:ListItem text="唯一性" key="K4"></core:ListItem>
+                                                        <core:ListItem text="无" key="K5"></core:ListItem>                                                    </c:items>
                                                 </c:ComboBox>
                                             </ly:MatrixLayoutCell>
                                         </ly:MatrixLayoutRow>
