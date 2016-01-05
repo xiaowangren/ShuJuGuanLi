@@ -12,6 +12,7 @@ sap.ui.jsview("com.zhenergy.data.manager.view.BiaoZhunGuanLiResult", {
         	selectionMode: sap.ui.table.SelectionMode.Single,
         	navigationMode: sap.ui.table.NavigationMode.Paginator,
         	fixedColumnCount: 0,
+        	selectionBehavior:sap.ui.table.SelectionBehavior.Row,
         	rowSelectionChange:function(oEvent){
         	    var rowContext = oEvent.getParameters().rowContext;
          	    var table = sap.ui.getCore().byId("biaoZhunQueryResult");

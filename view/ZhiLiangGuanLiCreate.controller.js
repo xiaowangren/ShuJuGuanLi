@@ -64,7 +64,7 @@ sap.ui.controller("com.zhenergy.data.manager.view.ZhiLiangGuanLiCreate", {
             Memo3:newZhiLiang.Memo3,
             DqCheckFrequencyId:DqCheckFrequencyId
         };
-        console.log(payLoad);
+        // console.log(payLoad);
         var oModel = this.getView().getModel("oModel");
         //是否提交
             var dialog = new sap.m.Dialog({
@@ -74,17 +74,56 @@ sap.ui.controller("com.zhenergy.data.manager.view.ZhiLiangGuanLiCreate", {
 				beginButton: new sap.m.Button({
 					text: '确认',
 					press: function () {
-                        oModel.create("/EE_QUALITYSet",payLoad, {
-                            success : jQuery.proxy(function() {
-                                sap.ui.controller("com.zhenergy.data.manager.view.MyMaster").onZhiLiangFunction();
-                                sap.ui.getCore().byId("idSplitApp").app.backToPage("idZlglQuery");
+					    //判断数据是否存在
+					    var count = 0;
+					    var mParameters = {};
+                        mParameters['async'] = true;
+                        mParameters['success'] = jQuery.proxy(function(data) {
+                            if(data.results.length!=0){
+                                for(var i=0;i<data.results.length;i++){
+                                    if(payLoad.DqTypeId==data.results[i].DqTypeId&&
+                                       payLoad.DqSystemId==data.results[i].DqSystemId&& 
+                                       payLoad.ItemTypeNameCn==data.results[i].ItemTypeNameCn&& 
+                                       payLoad.ItemTypeNameEn==data.results[i].ItemTypeNameEn&& 
+                                       payLoad.ItemNameEn==data.results[i].ItemNameEn&& 
+                                       payLoad.ItemNameCn==data.results[i].ItemNameCn){
+                                        count++;
+                                    }
+                                }
+                            }
+                            if(count!=0){//说明数据库中已经存在
+                                // sap.ui.controller("com.zhenergy.data.manager.view.MyMaster").onBiaoZhunFunction();
                                 jQuery.sap.require("sap.m.MessageToast");
-                                sap.m.MessageToast.show("数据质量新增成功");
-                            }, this),
-                            error : jQuery.proxy(function() {
-                                sap.m.MessageToast.show("数据质量新增失败");
-                            }, this)                         
-                        });
+                                sap.m.MessageToast.show("已经存在，无法进行创建");
+                            }else{
+                                oModel.create("/EE_QUALITYSet",payLoad, {
+                                    success : jQuery.proxy(function() {
+                                        sap.ui.controller("com.zhenergy.data.manager.view.MyMaster").onZhiLiangFunction();
+                                        sap.ui.getCore().byId("idSplitApp").app.to("idZlglQuery");
+                                        jQuery.sap.require("sap.m.MessageToast");
+                                        sap.m.MessageToast.show("数据质量新增成功");
+                                    }, this),
+                                    error : jQuery.proxy(function() {
+                                        sap.m.MessageToast.show("数据质量新增失败");
+                                    }, this)                         
+                                }); 
+                            }
+                        }, this);
+                        mParameters['error'] = jQuery.proxy(function(data) {
+                            sap.m.MessageToast.show("网络连接失败，请重试");
+                        }, this);
+
+					   oModel.read("/EE_QUALITYSet?$filter=DqTypeId eq '"+payLoad.DqTypeId+"' and DqSystemId eq '"+payLoad.DqSystemId+"' and ItemNameCn eq '"+payLoad.ItemNameCn+"' and DqDimentationId eq 'KK' and DqCheckFrequencyId eq 'MM' and EffectiveStatusId eq 'LL'",mParameters);   
+
+					    
+					    
+					    
+					    
+					    
+					    
+					    
+					    
+                        
 						dialog.close();
 					}
 				}),

@@ -7,8 +7,8 @@ sap.ui.controller("com.zhenergy.data.manager.view.ZhiLiangGuanLiQuery", {
         var shuJuZhiLiangJianChaWeiDu = this.getView().byId("shuJuZhiLiangJianChaWeiDu").getSelectedKey();
         var jianChaWeiDu = this.getView().byId("jianChaWeiDu").getSelectedKey();
         var shiFouYouXiaoZhiLiang = this.getView().byId("shiFouYouXiaoZhiLiang").getSelectedKey();  
-        // console.log(shuJuXiangLeiXingQuery+"---"+xiTongQuery+"---"+shuJuXiangZhongWenMingCheng);
-        // console.log(shuJuZhiLiangJianChaWeiDu+"---"+jianChaWeiDu+"---"+shiFouYouXiaoZhiLiang);
+        console.log(shuJuXiangLeiXingQuery+"---"+xiTongQuery+"---"+shuJuXiangZhongWenMingCheng);
+        console.log(shuJuZhiLiangJianChaWeiDu+"---"+jianChaWeiDu+"---"+shiFouYouXiaoZhiLiang);
          //调用abap
         var jModel = new sap.ui.model.json.JSONModel();
         var table = sap.ui.getCore().byId("zhiLiangQueryResult");
@@ -24,7 +24,7 @@ sap.ui.controller("com.zhenergy.data.manager.view.ZhiLiangGuanLiQuery", {
         }, this);
         var oModel1 = sap.ui.getCore().getModel("oModel");  
         // oModel1.read("/EE_QUALITYSet?$filter=DqTypeId eq 'II' and DqSystemId eq 'JJ' and ItemTypeNameCn eq '主表' and DqDimentationId eq 'KK' and DqCheckFrequencyId eq 'MM' and EffectiveStatusId eq 'LL'",mParameters);
-        oModel1.read("/EE_QUALITYSet?$filter=DqTypeId eq '"+shuJuXiangLeiXingQuery+"' and DqSystemId eq '"+xiTongQuery+"' and ItemTypeNameCn eq '"+shuJuXiangZhongWenMingCheng+"' and DqDimentationId eq '"+shuJuZhiLiangJianChaWeiDu+"' and DqCheckFrequencyId eq '"+jianChaWeiDu+"' and EffectiveStatusId eq '"+shiFouYouXiaoZhiLiang+"'",mParameters);   
+        oModel1.read("/EE_QUALITYSet?$filter=DqTypeId eq '"+shuJuXiangLeiXingQuery+"' and DqSystemId eq '"+xiTongQuery+"' and ItemNameCn eq '"+shuJuXiangZhongWenMingCheng+"' and DqDimentationId eq '"+shuJuZhiLiangJianChaWeiDu+"' and DqCheckFrequencyId eq '"+jianChaWeiDu+"' and EffectiveStatusId eq '"+shiFouYouXiaoZhiLiang+"'",mParameters);   
     },
     onChongZhiZhiLiang:function(){
         sap.ui.getCore().byId("idZlglQuery").byId("shuJuXiangLeiXingQuery").setSelectedKey("II");
