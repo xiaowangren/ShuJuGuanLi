@@ -64,17 +64,43 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiUpdate", {
 				beginButton: new sap.m.Button({
 					text: '确认',
 					press: function () {
-                        oModel.update("/EE_STANDARDSet('"+id+"')",newBiaoZhunUpdate, {
-                            success : jQuery.proxy(function() {
-                                sap.ui.controller("com.zhenergy.data.manager.view.MyMaster").onBiaoZhunFunction();
-                                sap.ui.getCore().byId("idSplitApp").app.backToPage("idBzglQuery");
+					    //判断数据是否存在
+					    var count = 0;
+					    var mParameters = {};
+                        mParameters['async'] = true;
+                        mParameters['success'] = jQuery.proxy(function(data) {
+                            if(data.results.length!=0){
+                                for(var i=0;i<data.results.length;i++){
+                                    if(newBiaoZhunUpdate.DsNameEn==data.results[i].DsNameEn&&
+                                       newBiaoZhunUpdate.DsNameCn==data.results[i].DsNameCn&& 
+                                       newBiaoZhunUpdate.DomainId==data.results[i].DomainId&& 
+                                       newBiaoZhunUpdate.SubdomainId==data.results[i].SubdomainId&& 
+                                       newBiaoZhunUpdate.DsSystem==data.results[i].DsSystem){
+                                        count++;
+                                    }
+                                }
+                            }
+                            if(count!=0){//说明数据库中已经存在
                                 jQuery.sap.require("sap.m.MessageToast");
-                                sap.m.MessageToast.show("数据标准修改成功");
-                            }, this),
-                            error : jQuery.proxy(function() {
-                                sap.m.MessageToast.show("数据标准修改失败");
-                            }, this)                         
-                        });
+                                sap.m.MessageToast.show("该数据已经存在，请重新修改");
+                            }else{
+                                oModel.update("/EE_STANDARDSet('"+id+"')",newBiaoZhunUpdate, {
+                                    success : jQuery.proxy(function() {
+                                        sap.ui.controller("com.zhenergy.data.manager.view.MyMaster").onBiaoZhunFunction();
+                                        sap.ui.getCore().byId("idSplitApp").app.to("idBzglQuery");
+                                        jQuery.sap.require("sap.m.MessageToast");
+                                        sap.m.MessageToast.show("数据标准修改成功");
+                                    }, this),
+                                    error : jQuery.proxy(function() {
+                                        sap.m.MessageToast.show("数据标准修改失败");
+                                    }, this)                         
+                                });
+                            }
+                        }, this);
+                        mParameters['error'] = jQuery.proxy(function(data) {
+                            sap.m.MessageToast.show("网络连接失败，请重试");
+                        }, this);
+                        oModel.read("/EE_STANDARDSet?$filter=TypeId eq 'CC' and DsCode eq '' and DsNameEn eq '"+newBiaoZhunUpdate.DsNameEn+"' and DsNameCn eq '"+newBiaoZhunUpdate.DsNameCn+"' and DomainId eq '"+newBiaoZhunUpdate.DomainId+"' and SecurityLevelId eq 'DD' and EffectiveStatusId eq 'HH'",mParameters);   
 						dialog.close();
 					}
 				}),

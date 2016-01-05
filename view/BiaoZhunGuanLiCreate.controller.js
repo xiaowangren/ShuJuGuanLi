@@ -50,7 +50,7 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiCreate", {
                             if(count!=0){//说明数据库中已经存在
                                 // sap.ui.controller("com.zhenergy.data.manager.view.MyMaster").onBiaoZhunFunction();
                                 jQuery.sap.require("sap.m.MessageToast");
-                                sap.m.MessageToast.show("已经存在，无法进行创建");
+                                sap.m.MessageToast.show("该数据已经存在，请重新创建");
                             }else{
                                oModel.create("/EE_STANDARDSet",newBiaoZhun, {
                                     success : jQuery.proxy(function() {
