@@ -21,6 +21,8 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiCreate", {
         var newBiaoZhun = this.getView().getModel("newBiaoZhun").getData().Detail;
         // console.log(newBiaoZhun);
         var oModel = sap.ui.getCore().getModel("oModel");
+        //判断数据是否已经存在
+        
         //是否提交
             var dialog = new sap.m.Dialog({
 				title: '确认框',
@@ -29,17 +31,44 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiCreate", {
 				beginButton: new sap.m.Button({
 					text: '确认',
 					press: function () {
-                        oModel.create("/EE_STANDARDSet",newBiaoZhun, {
-                            success : jQuery.proxy(function() {
-                                sap.ui.controller("com.zhenergy.data.manager.view.MyMaster").onBiaoZhunFunction();
-                                sap.ui.getCore().byId("idSplitApp").app.backToPage("idBzglQuery");
+					    //判断数据是否存在
+					    var count = 0;
+					    var mParameters = {};
+                        mParameters['async'] = true;
+                        mParameters['success'] = jQuery.proxy(function(data) {
+                            if(data.results.length!=0){
+                                for(var i=0;i<data.results.length;i++){
+                                    if(newBiaoZhun.DsNameEn==data.results[i].DsNameEn&&
+                                       newBiaoZhun.DsNameCn==data.results[i].DsNameCn&& 
+                                       newBiaoZhun.DomainId==data.results[i].DomainId&& 
+                                       newBiaoZhun.SubdomainId==data.results[i].SubdomainId&& 
+                                       newBiaoZhun.DsSystem==data.results[i].DsSystem){
+                                        count++;
+                                    }
+                                }
+                            }
+                            if(count!=0){//说明数据库中已经存在
+                                // sap.ui.controller("com.zhenergy.data.manager.view.MyMaster").onBiaoZhunFunction();
                                 jQuery.sap.require("sap.m.MessageToast");
-                                sap.m.MessageToast.show("数据标准新增成功");
-                            }, this),
-                            error : jQuery.proxy(function() {
-                                sap.m.MessageToast.show("数据标准新增失败");
-                            }, this)                         
-                        });
+                                sap.m.MessageToast.show("已经存在，无法进行创建");
+                            }else{
+                               oModel.create("/EE_STANDARDSet",newBiaoZhun, {
+                                    success : jQuery.proxy(function() {
+                                        sap.ui.controller("com.zhenergy.data.manager.view.MyMaster").onBiaoZhunFunction();
+                                        sap.ui.getCore().byId("idSplitApp").app.to("idBzglQuery");
+                                        jQuery.sap.require("sap.m.MessageToast");
+                                        sap.m.MessageToast.show("数据标准新增成功");
+                                    }, this),
+                                    error : jQuery.proxy(function() {
+                                        sap.m.MessageToast.show("数据标准新增失败");
+                                    }, this)                         
+                                }); 
+                            }
+                        }, this);
+                        mParameters['error'] = jQuery.proxy(function(data) {
+                            sap.m.MessageToast.show("网络连接失败，请重试");
+                        }, this);
+                        oModel.read("/EE_STANDARDSet?$filter=TypeId eq 'CC' and DsCode eq '' and DsNameEn eq '"+newBiaoZhun.DsNameEn+"' and DsNameCn eq '"+newBiaoZhun.DsNameCn+"' and DomainId eq '"+newBiaoZhun.DomainId+"' and SecurityLevelId eq 'DD' and EffectiveStatusId eq 'HH'",mParameters);   
 						dialog.close();
 					}
 				}),
