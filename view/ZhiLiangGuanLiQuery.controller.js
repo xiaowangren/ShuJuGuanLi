@@ -7,8 +7,8 @@ sap.ui.controller("com.zhenergy.data.manager.view.ZhiLiangGuanLiQuery", {
         var shuJuZhiLiangJianChaWeiDu = this.getView().byId("shuJuZhiLiangJianChaWeiDu").getSelectedKey();
         var jianChaWeiDu = this.getView().byId("jianChaWeiDu").getSelectedKey();
         var shiFouYouXiaoZhiLiang = this.getView().byId("shiFouYouXiaoZhiLiang").getSelectedKey();  
-        console.log(shuJuXiangLeiXingQuery+"---"+xiTongQuery+"---"+shuJuXiangZhongWenMingCheng);
-        console.log(shuJuZhiLiangJianChaWeiDu+"---"+jianChaWeiDu+"---"+shiFouYouXiaoZhiLiang);
+        // console.log(shuJuXiangLeiXingQuery+"---"+xiTongQuery+"---"+shuJuXiangZhongWenMingCheng);
+        // console.log(shuJuZhiLiangJianChaWeiDu+"---"+jianChaWeiDu+"---"+shiFouYouXiaoZhiLiang);
          //调用abap
         var jModel = new sap.ui.model.json.JSONModel();
         var table = sap.ui.getCore().byId("zhiLiangQueryResult");
