@@ -70,17 +70,46 @@ sap.ui.controller("com.zhenergy.data.manager.view.ZhiLiangGuanLiUpdate", {
 				beginButton: new sap.m.Button({
 					text: '确认',
 					press: function () {
-                        oModel.update("/EE_QUALITYSet('"+id+"')",newZhiLiangUpdate, {
-                            success : jQuery.proxy(function() {
-                                sap.ui.controller("com.zhenergy.data.manager.view.MyMaster").onZhiLiangFunction();
-                                sap.ui.getCore().byId("idSplitApp").app.backToPage("idZlglQuery");
+					    //判断数据是否存在
+					    var count = 0;
+					    var mParameters = {};
+                        mParameters['async'] = true;
+                        mParameters['success'] = jQuery.proxy(function(data) {
+                            if(data.results.length!=0){
+                                for(var i=0;i<data.results.length;i++){
+                                    if(newZhiLiangUpdate.DqTypeId==data.results[i].DqTypeId&&
+                                       newZhiLiangUpdate.DqSystemId==data.results[i].DqSystemId&& 
+                                       newZhiLiangUpdate.ItemTypeNameCn==data.results[i].ItemTypeNameCn&& 
+                                       newZhiLiangUpdate.ItemTypeNameEn==data.results[i].ItemTypeNameEn&& 
+                                       newZhiLiangUpdate.ItemNameEn==data.results[i].ItemNameEn&& 
+                                       newZhiLiangUpdate.ItemNameCn==data.results[i].ItemNameCn){
+                                        count++;
+                                    }
+                                }
+                            }
+                            if(count!=0){//说明数据库中已经存在
+                                // sap.ui.controller("com.zhenergy.data.manager.view.MyMaster").onBiaoZhunFunction();
                                 jQuery.sap.require("sap.m.MessageToast");
-                                sap.m.MessageToast.show("数据质量修改成功");
-                            }, this),
-                            error : jQuery.proxy(function() {
-                                sap.m.MessageToast.show("数据质量修改失败");
-                            }, this)                         
-                        });
+                                sap.m.MessageToast.show("该数据已经存在，请重新修改");
+                            }else{
+                                oModel.update("/EE_QUALITYSet('"+id+"')",newZhiLiangUpdate, {
+                                    success : jQuery.proxy(function() {
+                                        sap.ui.controller("com.zhenergy.data.manager.view.MyMaster").onZhiLiangFunction();
+                                        sap.ui.getCore().byId("idSplitApp").app.to("idZlglQuery");
+                                        jQuery.sap.require("sap.m.MessageToast");
+                                        sap.m.MessageToast.show("数据质量修改成功");
+                                    }, this),
+                                    error : jQuery.proxy(function() {
+                                        sap.m.MessageToast.show("数据质量修改失败");
+                                    }, this)                         
+                                });
+                            }
+                        }, this);
+                        mParameters['error'] = jQuery.proxy(function(data) {
+                            sap.m.MessageToast.show("网络连接失败，请重试");
+                        }, this);
+
+					   oModel.read("/EE_QUALITYSet?$filter=DqTypeId eq '"+newZhiLiangUpdate.DqTypeId+"' and DqSystemId eq '"+newZhiLiangUpdate.DqSystemId+"' and ItemNameCn eq '"+newZhiLiangUpdate.ItemNameCn+"' and DqDimentationId eq 'KK' and DqCheckFrequencyId eq 'MM' and EffectiveStatusId eq 'LL'",mParameters); 
 						dialog.close();
 					}
 				}),

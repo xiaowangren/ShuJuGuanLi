@@ -94,7 +94,7 @@ sap.ui.controller("com.zhenergy.data.manager.view.ZhiLiangGuanLiCreate", {
                             if(count!=0){//说明数据库中已经存在
                                 // sap.ui.controller("com.zhenergy.data.manager.view.MyMaster").onBiaoZhunFunction();
                                 jQuery.sap.require("sap.m.MessageToast");
-                                sap.m.MessageToast.show("已经存在，无法进行创建");
+                                sap.m.MessageToast.show("该数据已经存在，请重新创建");
                             }else{
                                 oModel.create("/EE_QUALITYSet",payLoad, {
                                     success : jQuery.proxy(function() {
@@ -114,16 +114,6 @@ sap.ui.controller("com.zhenergy.data.manager.view.ZhiLiangGuanLiCreate", {
                         }, this);
 
 					   oModel.read("/EE_QUALITYSet?$filter=DqTypeId eq '"+payLoad.DqTypeId+"' and DqSystemId eq '"+payLoad.DqSystemId+"' and ItemNameCn eq '"+payLoad.ItemNameCn+"' and DqDimentationId eq 'KK' and DqCheckFrequencyId eq 'MM' and EffectiveStatusId eq 'LL'",mParameters);   
-
-					    
-					    
-					    
-					    
-					    
-					    
-					    
-					    
-                        
 						dialog.close();
 					}
 				}),
