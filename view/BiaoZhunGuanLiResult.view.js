@@ -11,24 +11,31 @@ sap.ui.jsview("com.zhenergy.data.manager.view.BiaoZhunGuanLiResult", {
 	        visibleRowCount: 10,
         	selectionMode: sap.ui.table.SelectionMode.Single,
         	navigationMode: sap.ui.table.NavigationMode.Paginator,
-        	fixedColumnCount: 0,
-        	selectionBehavior:sap.ui.table.SelectionBehavior.Row,
-        	rowSelectionChange:function(oEvent){
-        	    var rowContext = oEvent.getParameters().rowContext;
-         	    var table = sap.ui.getCore().byId("biaoZhunQueryResult");
-         	    var model = table.getModel(); 
-         	    var data  = model.getProperty(rowContext.sPath);
-         	    sap.ui.getCore().byId("idSplitApp").app.to("idBzglUpdate", rowContext);
-        		var page = sap.ui.getCore().byId("idSplitApp").app.getPage("idBzglUpdate");
-        // 		var dsNameCn= data["DsNameCn"];
-        // 		console.log(data["DsNameCn"]);
-        //   	    page.setBindingContext(rowContext);     
-          	    var oModel = new sap.ui.model.json.JSONModel(data);
-			    page.setModel(oModel,"newBiaoZhunUpdate");
+        	fixedColumnCount: 0
+        // 	selectionBehavior:sap.ui.table.SelectionBehavior.Row
+    //     	rowSelectionChange:function(oEvent){
+    //     	    var rowContext = oEvent.getParameters().rowContext;
+    //      	    var table = sap.ui.getCore().byId("biaoZhunQueryResult");
+    //      	    var model = table.getModel(); 
+    //      	    console.log(rowContext.sPath);
+    //      	    var data  = model.getProperty(rowContext.sPath);
+    //      	    sap.ui.getCore().byId("idSplitApp").app.to("idBzglUpdate", rowContext);
+    //     		var page = sap.ui.getCore().byId("idSplitApp").app.getPage("idBzglUpdate");
+    //     // 		var dsNameCn= data["DsNameCn"];
+    //     // 		console.log(data["DsNameCn"]);
+    //     //   	    page.setBindingContext(rowContext);     
+    //       	    var oModel = new sap.ui.model.json.JSONModel(data);
+			 //   page.setModel(oModel,"newBiaoZhunUpdate");
          	    
-        	}
+    //     	}
         	
         }); 
+        oTable2.addColumn(new sap.ui.table.Column({
+        	label: new sap.ui.commons.Label({text: "操作"}),
+        	template: new sap.ui.commons.Button({text : "修改",press : oController.handleDetailsPress}),
+        	width: "100px",
+        	hAlign: "Center"
+        }));
 	    oTable2.addColumn(new sap.ui.table.Column({
         	label: new sap.ui.commons.Label({text: "数据项编号"}),
         	template: new sap.ui.commons.TextView().bindProperty("text", "DsCode"),
