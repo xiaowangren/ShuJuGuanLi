@@ -38,11 +38,20 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiCreate", {
                         mParameters['success'] = jQuery.proxy(function(data) {
                             if(data.results.length!=0){
                                 for(var i=0;i<data.results.length;i++){
-                                    if(newBiaoZhun.DsNameEn.trim()==data.results[i].DsNameEn&&
-                                       newBiaoZhun.DsNameCn.trim()==data.results[i].DsNameCn&& 
+                                    if(newBiaoZhun.DsNameEn!=undefined){
+                                        newBiaoZhun.DsNameEn = newBiaoZhun.DsNameEn.trim();
+                                    }
+                                    if(newBiaoZhun.DsNameCn!=undefined){
+                                        newBiaoZhun.DsNameCn = newBiaoZhun.DsNameCn.trim();
+                                    }
+                                    if(newBiaoZhun.DsSystem!=undefined){
+                                        newBiaoZhun.DsSystem = newBiaoZhun.DsSystem.trim();
+                                    }
+                                    if(newBiaoZhun.DsNameEn==data.results[i].DsNameEn&&
+                                       newBiaoZhun.DsNameCn==data.results[i].DsNameCn&& 
                                        newBiaoZhun.DomainId==data.results[i].DomainId&& 
                                        newBiaoZhun.SubdomainId==data.results[i].SubdomainId&& 
-                                       newBiaoZhun.DsSystem.trim()==data.results[i].DsSystem){
+                                       newBiaoZhun.DsSystem==data.results[i].DsSystem){
                                         count++;
                                     }
                                 }
@@ -68,7 +77,7 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiCreate", {
                         mParameters['error'] = jQuery.proxy(function(data) {
                             sap.m.MessageToast.show("网络连接失败，请重试");
                         }, this);
-                        oModel.read("/EE_STANDARDSet?$filter=TypeId eq 'CC' and DsCode eq '' and DsNameEn eq '"+newBiaoZhun.DsNameEn+"' and DsNameCn eq '"+newBiaoZhun.DsNameCn+"' and DomainId eq '"+newBiaoZhun.DomainId+"' and SecurityLevelId eq 'DD' and EffectiveStatusId eq 'HH'",mParameters);   
+                        oModel.read("/EE_STANDARDSet?$filter=TypeId eq 'CC' and DsCode eq '' and DsNameEn eq '' and DsNameCn eq '' and DomainId eq 'AA' and SecurityLevelId eq 'DD' and EffectiveStatusId eq 'HH'",mParameters);   
 						dialog.close();
 					}
 				}),

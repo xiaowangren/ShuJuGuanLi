@@ -76,6 +76,18 @@ sap.ui.controller("com.zhenergy.data.manager.view.ZhiLiangGuanLiUpdate", {
                         mParameters['async'] = true;
                         mParameters['success'] = jQuery.proxy(function(data) {
                             if(data.results.length!=0){
+                                if(newZhiLiangUpdate.ItemTypeNameCn!=undefined){
+                                    newZhiLiangUpdate.ItemTypeNameCn = newZhiLiangUpdate.ItemTypeNameCn.trim();
+                                }
+                                if(newZhiLiangUpdate.ItemTypeNameEn!=undefined){
+                                    newZhiLiangUpdate.ItemTypeNameEn = newZhiLiangUpdate.ItemTypeNameEn.trim();
+                                }
+                                if(newZhiLiangUpdate.ItemNameEn!=undefined){
+                                    newZhiLiangUpdate.ItemNameEn = newZhiLiangUpdate.ItemNameEn.trim();
+                                }
+                                if(newZhiLiangUpdate.ItemNameCn!=undefined){
+                                    newZhiLiangUpdate.ItemNameCn = newZhiLiangUpdate.ItemNameCn.trim();
+                                }
                                 for(var i=0;i<data.results.length;i++){
                                     if(newZhiLiangUpdate.DqTypeId==data.results[i].DqTypeId&&
                                        newZhiLiangUpdate.DqSystemId==data.results[i].DqSystemId&& 
@@ -109,7 +121,7 @@ sap.ui.controller("com.zhenergy.data.manager.view.ZhiLiangGuanLiUpdate", {
                             sap.m.MessageToast.show("网络连接失败，请重试");
                         }, this);
 
-					   oModel.read("/EE_QUALITYSet?$filter=DqTypeId eq '"+newZhiLiangUpdate.DqTypeId+"' and DqSystemId eq '"+newZhiLiangUpdate.DqSystemId+"' and ItemNameCn eq '"+newZhiLiangUpdate.ItemNameCn+"' and DqDimentationId eq 'KK' and DqCheckFrequencyId eq 'MM' and EffectiveStatusId eq 'LL'",mParameters); 
+					   oModel.read("/EE_QUALITYSet?$filter=DqTypeId eq 'II' and DqSystemId eq 'JJ' and ItemNameCn eq '' and DqDimentationId eq 'KK' and DqCheckFrequencyId eq 'MM' and EffectiveStatusId eq 'LL'",mParameters); 
 						dialog.close();
 					}
 				}),

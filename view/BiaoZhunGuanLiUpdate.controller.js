@@ -70,6 +70,15 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiUpdate", {
                         mParameters['async'] = true;
                         mParameters['success'] = jQuery.proxy(function(data) {
                             if(data.results.length!=0){
+                                if(newBiaoZhunUpdate.DsNameEn!=undefined){
+                                    newBiaoZhunUpdate.DsNameEn = newBiaoZhunUpdate.DsNameEn.trim();
+                                }
+                                if(newBiaoZhunUpdate.DsNameCn!=undefined){
+                                    newBiaoZhunUpdate.DsNameCn = newBiaoZhunUpdate.DsNameCn.trim();
+                                }
+                                if(newBiaoZhunUpdate.DsSystem!=undefined){
+                                    newBiaoZhunUpdate.DsSystem = newBiaoZhunUpdate.DsSystem.trim();
+                                }
                                 for(var i=0;i<data.results.length;i++){
                                     if(newBiaoZhunUpdate.DsNameEn.trim()==data.results[i].DsNameEn&&
                                        newBiaoZhunUpdate.DsNameCn.trim()==data.results[i].DsNameCn&& 
@@ -100,7 +109,7 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiUpdate", {
                         mParameters['error'] = jQuery.proxy(function(data) {
                             sap.m.MessageToast.show("网络连接失败，请重试");
                         }, this);
-                        oModel.read("/EE_STANDARDSet?$filter=TypeId eq 'CC' and DsCode eq '' and DsNameEn eq '"+newBiaoZhunUpdate.DsNameEn+"' and DsNameCn eq '"+newBiaoZhunUpdate.DsNameCn+"' and DomainId eq '"+newBiaoZhunUpdate.DomainId+"' and SecurityLevelId eq 'DD' and EffectiveStatusId eq 'HH'",mParameters);   
+                        oModel.read("/EE_STANDARDSet?$filter=TypeId eq 'CC' and DsCode eq '' and DsNameEn eq '' and DsNameCn eq '' and DomainId eq 'AA' and SecurityLevelId eq 'DD' and EffectiveStatusId eq 'HH'",mParameters);   
 						dialog.close();
 					}
 				}),

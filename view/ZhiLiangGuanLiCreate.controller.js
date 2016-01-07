@@ -80,6 +80,19 @@ sap.ui.controller("com.zhenergy.data.manager.view.ZhiLiangGuanLiCreate", {
                         mParameters['async'] = true;
                         mParameters['success'] = jQuery.proxy(function(data) {
                             if(data.results.length!=0){
+                                
+                                if(payLoad.ItemTypeNameCn!=undefined){
+                                    payLoad.ItemTypeNameCn = payLoad.ItemTypeNameCn.trim();
+                                }
+                                if(payLoad.ItemTypeNameEn!=undefined){
+                                    payLoad.ItemTypeNameEn = payLoad.ItemTypeNameEn.trim();
+                                }
+                                if(payLoad.ItemNameEn!=undefined){
+                                    payLoad.ItemNameEn = payLoad.ItemNameEn.trim();
+                                }
+                                if(payLoad.ItemNameCn!=undefined){
+                                    payLoad.ItemNameCn = payLoad.ItemNameCn.trim();
+                                }
                                 for(var i=0;i<data.results.length;i++){
                                     if(payLoad.DqTypeId==data.results[i].DqTypeId&&
                                        payLoad.DqSystemId==data.results[i].DqSystemId&& 
@@ -87,7 +100,7 @@ sap.ui.controller("com.zhenergy.data.manager.view.ZhiLiangGuanLiCreate", {
                                        payLoad.ItemTypeNameEn.trim()==data.results[i].ItemTypeNameEn&& 
                                        payLoad.ItemNameEn.trim()==data.results[i].ItemNameEn&& 
                                        payLoad.ItemNameCn.trim()==data.results[i].ItemNameCn){
-                                        count++;
+                                       count++;
                                     }
                                 }
                             }
@@ -113,7 +126,7 @@ sap.ui.controller("com.zhenergy.data.manager.view.ZhiLiangGuanLiCreate", {
                             sap.m.MessageToast.show("网络连接失败，请重试");
                         }, this);
 
-					   oModel.read("/EE_QUALITYSet?$filter=DqTypeId eq '"+payLoad.DqTypeId+"' and DqSystemId eq '"+payLoad.DqSystemId+"' and ItemNameCn eq '"+payLoad.ItemNameCn+"' and DqDimentationId eq 'KK' and DqCheckFrequencyId eq 'MM' and EffectiveStatusId eq 'LL'",mParameters);   
+					   oModel.read("/EE_QUALITYSet?$filter=DqTypeId eq 'II' and DqSystemId eq 'JJ' and ItemNameCn eq '' and DqDimentationId eq 'KK' and DqCheckFrequencyId eq 'MM' and EffectiveStatusId eq 'LL'",mParameters);   
 						dialog.close();
 					}
 				}),
