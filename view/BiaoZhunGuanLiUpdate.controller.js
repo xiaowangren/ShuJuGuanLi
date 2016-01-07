@@ -56,6 +56,27 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiUpdate", {
 	    newBiaoZhunUpdate["DsIsnull"]="";
 	    var id= newBiaoZhunUpdate["DsCode"];
         var oModel = sap.ui.getCore().getModel("oModel");
+        jQuery.sap.require("sap.m.MessageBox");
+        if(newBiaoZhunUpdate.DsNameCn==undefined || newBiaoZhunUpdate.DsNameCn.trim()==""){
+            sap.m.MessageBox.alert("数据项中文名称必填",{title: "提示"});
+            return;
+        }
+        if(newBiaoZhunUpdate.DsNameEn==undefined || newBiaoZhunUpdate.DsNameEn.trim()==""){
+            sap.m.MessageBox.alert("数据项英文名称必填",{title: "提示"});
+            return;
+        }
+        if(newBiaoZhunUpdate.DomainId=="AA"||newBiaoZhunUpdate.DomainId.trim()==""){
+            sap.m.MessageBox.alert("主题域必填",{title: "提示"});
+            return;
+        }
+        if(newBiaoZhunUpdate.SubdomainId=="BB"||newBiaoZhunUpdate.SubdomainId.trim()==""){
+            sap.m.MessageBox.alert("子主题域必填",{title: "提示"});
+            return;
+        }
+        if(newBiaoZhunUpdate.DsSystem==undefined || newBiaoZhunUpdate.DsSystem.trim()==""){
+            sap.m.MessageBox.alert("来源应用系统必填",{title: "提示"});
+            return;
+        }
         //是否提交
             var dialog = new sap.m.Dialog({
 				title: '确认框',

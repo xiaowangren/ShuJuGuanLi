@@ -66,6 +66,31 @@ sap.ui.controller("com.zhenergy.data.manager.view.ZhiLiangGuanLiCreate", {
         };
         // console.log(payLoad);
         var oModel = this.getView().getModel("oModel");
+        jQuery.sap.require("sap.m.MessageBox");
+        if(payLoad.DqTypeId=="II"||payLoad.DqTypeId.trim()==""){
+            sap.m.MessageBox.alert("数据项类型必填",{title: "提示"});
+            return;
+        }
+        if(payLoad.DqSystemId=="JJ"||payLoad.DqSystemId.trim()==""){
+            sap.m.MessageBox.alert("系统必填",{title: "提示"});
+            return;
+        }
+        if(payLoad.ItemTypeNameEn==undefined || payLoad.ItemTypeNameEn.trim()==""){
+            sap.m.MessageBox.alert("数据项类型英文名称必填",{title: "提示"});
+            return;
+        }
+        if(payLoad.ItemTypeNameCn==undefined || payLoad.ItemTypeNameCn.trim()==""){
+            sap.m.MessageBox.alert("数据项类型中文名称必填",{title: "提示"});
+            return;
+        }
+        if(payLoad.ItemNameEn==undefined || payLoad.ItemNameEn.trim()==""){
+            sap.m.MessageBox.alert("数据项英文名称必填",{title: "提示"});
+            return;
+        }
+        if(payLoad.ItemNameCn==undefined || payLoad.ItemNameCn.trim()==""){
+            sap.m.MessageBox.alert("数据项中文名称必填",{title: "提示"});
+            return;
+        }
         //是否提交
             var dialog = new sap.m.Dialog({
 				title: '确认框',

@@ -22,7 +22,27 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiCreate", {
         // console.log(newBiaoZhun);
         var oModel = sap.ui.getCore().getModel("oModel");
         //判断数据是否已经存在
-        
+        jQuery.sap.require("sap.m.MessageBox");
+        if(newBiaoZhun.DsNameCn==undefined || newBiaoZhun.DsNameCn.trim()==""){
+            sap.m.MessageBox.alert("数据项中文名称必填",{title: "提示"});
+            return;
+        }
+        if(newBiaoZhun.DsNameEn==undefined || newBiaoZhun.DsNameEn.trim()==""){
+            sap.m.MessageBox.alert("数据项英文名称必填",{title: "提示"});
+            return;
+        }
+        if(newBiaoZhun.DomainId=="AA"||newBiaoZhun.DomainId.trim()==""){
+            sap.m.MessageBox.alert("主题域必填",{title: "提示"});
+            return;
+        }
+        if(newBiaoZhun.SubdomainId=="BB"||newBiaoZhun.SubdomainId.trim()==""){
+            sap.m.MessageBox.alert("子主题域必填",{title: "提示"});
+            return;
+        }
+        if(newBiaoZhun.DsSystem==undefined || newBiaoZhun.DsSystem.trim()==""){
+            sap.m.MessageBox.alert("来源应用系统必填",{title: "提示"});
+            return;
+        }
         //是否提交
             var dialog = new sap.m.Dialog({
 				title: '确认框',

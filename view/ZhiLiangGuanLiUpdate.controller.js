@@ -62,6 +62,32 @@ sap.ui.controller("com.zhenergy.data.manager.view.ZhiLiangGuanLiUpdate", {
 	    newZhiLiangUpdate["EffectiveStatus"]="";
 	    var id= newZhiLiangUpdate["RullNo"];
         var oModel = sap.ui.getCore().getModel("oModel");
+        console.log(newZhiLiangUpdate);
+        jQuery.sap.require("sap.m.MessageBox");
+        if(newZhiLiangUpdate.DqTypeId=="II"||newZhiLiangUpdate.DqTypeId.trim()==""){
+            sap.m.MessageBox.alert("数据项类型必填",{title: "提示"});
+            return;
+        }
+        if(newZhiLiangUpdate.DqSystemId=="JJ"||newZhiLiangUpdate.DqSystemId.trim()==""){
+            sap.m.MessageBox.alert("系统必填",{title: "提示"});
+            return;
+        }
+        if(newZhiLiangUpdate.ItemTypeNameEn==undefined || newZhiLiangUpdate.ItemTypeNameEn.trim()==""){
+            sap.m.MessageBox.alert("数据项类型英文名称必填",{title: "提示"});
+            return;
+        }
+        if(newZhiLiangUpdate.ItemTypeNameCn==undefined || newZhiLiangUpdate.ItemTypeNameCn.trim()==""){
+            sap.m.MessageBox.alert("数据项类型中文名称必填",{title: "提示"});
+            return;
+        }
+        if(newZhiLiangUpdate.ItemNameEn==undefined || newZhiLiangUpdate.ItemNameEn.trim()==""){
+            sap.m.MessageBox.alert("数据项英文名称必填",{title: "提示"});
+            return;
+        }
+        if(newZhiLiangUpdate.ItemNameCn==undefined || newZhiLiangUpdate.ItemNameCn.trim()==""){
+            sap.m.MessageBox.alert("数据项中文名称必填",{title: "提示"});
+            return;
+        }
         //是否提交
             var dialog = new sap.m.Dialog({
 				title: '确认框',
