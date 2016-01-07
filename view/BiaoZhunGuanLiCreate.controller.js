@@ -38,11 +38,11 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiCreate", {
                         mParameters['success'] = jQuery.proxy(function(data) {
                             if(data.results.length!=0){
                                 for(var i=0;i<data.results.length;i++){
-                                    if(newBiaoZhun.DsNameEn==data.results[i].DsNameEn&&
-                                       newBiaoZhun.DsNameCn==data.results[i].DsNameCn&& 
+                                    if(newBiaoZhun.DsNameEn.trim()==data.results[i].DsNameEn&&
+                                       newBiaoZhun.DsNameCn.trim()==data.results[i].DsNameCn&& 
                                        newBiaoZhun.DomainId==data.results[i].DomainId&& 
                                        newBiaoZhun.SubdomainId==data.results[i].SubdomainId&& 
-                                       newBiaoZhun.DsSystem==data.results[i].DsSystem){
+                                       newBiaoZhun.DsSystem.trim()==data.results[i].DsSystem){
                                         count++;
                                     }
                                 }

@@ -71,11 +71,11 @@ sap.ui.controller("com.zhenergy.data.manager.view.BiaoZhunGuanLiUpdate", {
                         mParameters['success'] = jQuery.proxy(function(data) {
                             if(data.results.length!=0){
                                 for(var i=0;i<data.results.length;i++){
-                                    if(newBiaoZhunUpdate.DsNameEn==data.results[i].DsNameEn&&
-                                       newBiaoZhunUpdate.DsNameCn==data.results[i].DsNameCn&& 
+                                    if(newBiaoZhunUpdate.DsNameEn.trim()==data.results[i].DsNameEn&&
+                                       newBiaoZhunUpdate.DsNameCn.trim()==data.results[i].DsNameCn&& 
                                        newBiaoZhunUpdate.DomainId==data.results[i].DomainId&& 
                                        newBiaoZhunUpdate.SubdomainId==data.results[i].SubdomainId&& 
-                                       newBiaoZhunUpdate.DsSystem==data.results[i].DsSystem){
+                                       newBiaoZhunUpdate.DsSystem.trim()==data.results[i].DsSystem){
                                         count++;
                                     }
                                 }

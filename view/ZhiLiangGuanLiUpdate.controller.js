@@ -79,10 +79,10 @@ sap.ui.controller("com.zhenergy.data.manager.view.ZhiLiangGuanLiUpdate", {
                                 for(var i=0;i<data.results.length;i++){
                                     if(newZhiLiangUpdate.DqTypeId==data.results[i].DqTypeId&&
                                        newZhiLiangUpdate.DqSystemId==data.results[i].DqSystemId&& 
-                                       newZhiLiangUpdate.ItemTypeNameCn==data.results[i].ItemTypeNameCn&& 
-                                       newZhiLiangUpdate.ItemTypeNameEn==data.results[i].ItemTypeNameEn&& 
-                                       newZhiLiangUpdate.ItemNameEn==data.results[i].ItemNameEn&& 
-                                       newZhiLiangUpdate.ItemNameCn==data.results[i].ItemNameCn){
+                                       newZhiLiangUpdate.ItemTypeNameCn.trim()==data.results[i].ItemTypeNameCn&& 
+                                       newZhiLiangUpdate.ItemTypeNameEn.trim()==data.results[i].ItemTypeNameEn&& 
+                                       newZhiLiangUpdate.ItemNameEn.trim()==data.results[i].ItemNameEn&& 
+                                       newZhiLiangUpdate.ItemNameCn.trim()==data.results[i].ItemNameCn){
                                         count++;
                                     }
                                 }
